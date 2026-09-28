@@ -37,19 +37,36 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2026-09-28T18:43:46+00:00'
+            dateAdded: '2026-09-28T20:04:45+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 14a507e4-2e91-44cc-8b0a-326f6090a58d # Page Title
-            handle: null
+            fieldUid: 86e77812-bb08-4036-a2b4-60ba8f9f4f08 # Text
+            handle: firstWord
             instructions: null
-            label: null
+            label: 'First word'
             oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 522b9b8b-c530-49d1-b54b-fe9f4bad2417
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-28T20:05:08+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 86e77812-bb08-4036-a2b4-60ba8f9f4f08 # Text
+            handle: secondWord
+            instructions: null
+            label: 'Second word'
+            oldFieldUid: 86e77812-bb08-4036-a2b4-60ba8f9f4f08 # Text
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 520384c0-9b95-4694-941c-ea212fe5b568
+            uid: 33aba385-64de-4210-89f5-ac6565a3500a
             userCondition: null
             warning: null
             width: 100
@@ -62,7 +79,7 @@ fieldLayouts:
             handle: previewImage
             instructions: null
             label: 'Preview Image'
-            oldFieldUid: 3e495542-aca6-4e31-a5db-b0819ff4e192 # Topic Image
+            oldFieldUid: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField

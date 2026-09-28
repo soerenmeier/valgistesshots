@@ -1,4 +1,4 @@
-dateModified: 1790625126
+dateModified: 1790625908
 email:
   fromEmail: support@meierlabs.xh
   fromName: "Valgiste's Shots"
@@ -25,12 +25,14 @@ meta:
     14a507e4-2e91-44cc-8b0a-326f6090a58d: 'Page Title' # Page Title
     21eb40aa-9362-4d89-a48f-ca390516d3e7: Topics # Topics
     58c604cf-b782-40bb-9e15-1f0ae16622d1: Assets # Assets
+    86e77812-bb08-4036-a2b4-60ba8f9f4f08: Text # Text
     593c0eef-2c24-4785-99b5-7df6e3851a3d: w800 # w800
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
     a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
     c806ff26-9920-4165-8fc7-fd16578eacdb: Image # Image
     c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Images and Videos' # Images and Videos
+    dc695121-71e4-4142-bbe5-3e725705c3f7: 'Second word' # Second word
     de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
 plugins:

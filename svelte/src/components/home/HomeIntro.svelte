@@ -101,4 +101,13 @@
 		font-size: clamp(1rem, 2vw, 1.25rem);
 		line-height: 1.5;
 	}
+
+	@include desktop {
+		.home-intro {
+			width: 100vw;
+			height: 100svh;
+			min-height: 0;
+			flex: 0 0 100vw;
+		}
+	}
 </style>

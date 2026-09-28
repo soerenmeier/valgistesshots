@@ -2,7 +2,8 @@
 	type Topic = {
 		id: string;
 		title: string;
-		pageTitle?: string | null;
+		firstWord?: string | null;
+		secondWord?: string | null;
 		url?: string | null;
 		previewImage?:
 			| {
@@ -25,13 +26,14 @@
 		<div class="scroller">
 			<div class="list">
 				{#each topics as topic (topic.id)}
-					{@const label = (topic.pageTitle || topic.title).trim()}
-					{@const split = label.lastIndexOf(' ')}
+					{@const first = topic.firstWord?.trim() || topic.title}
+					{@const second = topic.secondWord?.trim() || ''}
+					{@const label = second ? `${first} ${second}` : first}
 					{@const image = topic.previewImage?.[0]}
 					<article class="card">
 						<a href={topic.url ?? undefined} aria-label={label}>
 							<span class="name first" aria-hidden="true">
-								{split > 0 ? label.slice(0, split) : label}
+								{first}
 							</span>
 							{#if image?.w800}
 								<img
@@ -52,9 +54,9 @@
 								></div>
 							{/if}
 							<span class="plus" aria-hidden="true">+</span>
-							{#if split > 0}
+							{#if second}
 								<span class="name last" aria-hidden="true">
-									{label.slice(split + 1)}
+									{second}
 								</span>
 							{/if}
 						</a>
@@ -94,7 +96,7 @@
 	.list {
 		display: flex;
 		width: max-content;
-		gap: clamp(4rem, 11vw, 11rem);
+		gap: clamp(5rem, 12vw, 10rem);
 		padding: clamp(8rem, 17vh, 12rem) var(--frame-inset);
 	}
 
@@ -165,6 +167,31 @@
 		outline-offset: 0.5rem;
 	}
 
+	@include desktop {
+		.showcase {
+			width: max-content;
+			min-width: 100vw;
+			height: 100svh;
+			min-height: 0;
+			flex: 0 0 auto;
+		}
+
+		.scroller {
+			width: auto;
+			overflow: visible;
+		}
+
+		.list {
+			min-width: 100vw;
+			gap: clamp(9rem, 19vw, 20rem);
+			padding-block: clamp(3rem, 8vh, 6rem);
+		}
+
+		.card {
+			width: min(29vw, 48vh, 25rem);
+		}
+	}
+
 	@include max-tablet {
 		.showcase {
 			padding-block: 6rem 4rem;
@@ -177,7 +204,7 @@
 		.list {
 			display: grid;
 			width: 100%;
-			gap: 6rem;
+			gap: 7rem;
 			padding-block: 3rem 4rem;
 		}
 

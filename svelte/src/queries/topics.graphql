@@ -4,7 +4,8 @@ query ($siteId: [QueryArgument]) {
     title
     url
     ... on topic_Entry {
-      pageTitle
+      firstWord
+      secondWord
       previewImage {
         w800: url(transform: "w800")
         w1920: url(transform: "w1920")

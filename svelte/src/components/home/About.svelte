@@ -49,6 +49,16 @@
 		line-height: 1.55;
 	}
 
+	@include desktop {
+		.about {
+			width: 100vw;
+			height: 100svh;
+			min-height: 0;
+			flex: 0 0 100vw;
+			overflow-y: auto;
+		}
+	}
+
 	@media (max-width: 600px) {
 		.content :global(.rt .image img) {
 			aspect-ratio: 4 / 3;
