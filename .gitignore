@@ -1,3 +1,5 @@
 *.DS_Store
 .idea
 /tmp
+/docker/craft/
+/postgres-dump.tar

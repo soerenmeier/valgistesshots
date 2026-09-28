@@ -13,11 +13,14 @@ Once you have cloned the repository you can start the project with the following
 ### CMS
 
 ```bash
-# start ddev (from the project root)
+# Copy craft/.env.example.dev to craft/.env if needed, then set PostgreSQL
+# (CRAFT_DB_DRIVER=pgsql, CRAFT_DB_SERVER=db, CRAFT_DB_PORT=5432).
+# Then start DDEV from the project root:
 ddev start
 ddev composer install
-ddev import-db --file=dump.sql.gz
-# copy assets
+# For a fresh database, run:
+ddev craft install
+# Or import an existing PostgreSQL SQL dump instead. Restore assets separately.
 ```
 
 ### Svelte
@@ -31,4 +34,8 @@ ddev npm run dev
 ## URLs
 
 - **Frontend**: `https://<project>.ddev.site`
-- **Craft control panel**: `https://admin.<project>.ddev.site/admin`
+- **Craft control panel**: `https://admin.valgistesshots.ddev.site/admin`
+
+## Deployment
+
+See [deploy/README.md](deploy/README.md) for the PostgreSQL setup, Docker Compose deployment, Riji commands, and production domains (`valgistesshorts.meierlabs.dev` and `admin.valgistesshorts.meierlabs.dev`).
