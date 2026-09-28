@@ -6,59 +6,41 @@
 
 <script>
 	import { onMount } from 'svelte';
+	import Lenis from 'lenis';
 	import HomeIntro from '@/components/home/HomeIntro.svelte';
 	import About from '@/components/home/About.svelte';
 	import TopicShowcase from '@/components/home/TopicShowcase.svelte';
 
 	let { entry, topics = [] } = $props();
 	let scroller;
+	let track;
 
 	onMount(() => {
 		const media = window.matchMedia('(min-width: 1111px)');
+		let lenis;
 
-		function onWheel(event) {
-			if (
-				!media.matches ||
-				event.ctrlKey ||
-				Math.abs(event.deltaX) >= Math.abs(event.deltaY)
-			)
-				return;
-
-			const about =
-				event.target instanceof Element
-					? event.target.closest('.about')
-					: null;
-			if (about && about.scrollHeight > about.clientHeight) {
-				const maxTop = about.scrollHeight - about.clientHeight;
-				if (
-					(event.deltaY > 0 && about.scrollTop < maxTop) ||
-					(event.deltaY < 0 && about.scrollTop > 0)
-				)
-					return;
-			}
-
-			const delta =
-				event.deltaY *
-				(event.deltaMode === WheelEvent.DOM_DELTA_LINE
-					? 16
-					: event.deltaMode === WheelEvent.DOM_DELTA_PAGE
-						? scroller.clientWidth
-						: 1);
-			const nextLeft = Math.max(
-				0,
-				Math.min(
-					scroller.scrollWidth - scroller.clientWidth,
-					scroller.scrollLeft + delta,
-				),
-			);
-			if (nextLeft === scroller.scrollLeft) return;
-
-			event.preventDefault();
-			scroller.scrollLeft = nextLeft;
+		function setup() {
+			lenis?.destroy();
+			lenis = media.matches
+				? new Lenis({
+						wrapper: scroller,
+						content: track,
+						orientation: 'horizontal',
+						gestureOrientation: 'both',
+						allowNestedScroll: true,
+						overscroll: false,
+						autoRaf: true,
+					})
+				: undefined;
 		}
 
-		scroller.addEventListener('wheel', onWheel, { passive: false });
-		return () => scroller.removeEventListener('wheel', onWheel);
+		setup();
+		media.addEventListener('change', setup);
+
+		return () => {
+			media.removeEventListener('change', setup);
+			lenis?.destroy();
+		};
 	});
 </script>
 
@@ -71,15 +53,17 @@
 	tabindex="0"
 	bind:this={scroller}
 >
-	<HomeIntro
-		title={entry.title}
-		pageTitle={entry.pageTitle}
-		pageIntroCke={entry.pageIntroCke}
-		video={entry.video}
-	/>
+	<div class="home-track" bind:this={track}>
+		<HomeIntro
+			title={entry.title}
+			pageTitle={entry.pageTitle}
+			pageIntroCke={entry.pageIntroCke}
+			video={entry.video}
+		/>
 
-	<About aboutCke={entry.aboutCke} />
-	<TopicShowcase {topics} />
+		<About aboutCke={entry.aboutCke} />
+		<TopicShowcase {topics} />
+	</div>
 </div>
 
 <style lang="scss">
@@ -96,6 +80,12 @@
 
 		.home-panels::-webkit-scrollbar {
 			display: none;
+		}
+
+		.home-track {
+			display: flex;
+			width: max-content;
+			height: 100%;
 		}
 	}
 </style>
