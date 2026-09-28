@@ -1,0 +1,54 @@
+columnSuffix: null
+handle: aboutCke
+instructions: null
+name: About
+searchable: false
+settings:
+  advancedLinkFields:
+    - target
+  availableTransforms: ''
+  availableVolumes: '*'
+  characterLimit: null
+  css: null
+  cssFile: null
+  defaultTransform: null
+  defaultUploadLocationSubpath: null
+  defaultUploadLocationVolume: null
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 8f0fb84e-689d-4c12-94eb-bf03b425c3cb # Image
+        -
+          - expanded
+          - true
+  fullGraphqlData: true
+  headingLevels:
+    - '2'
+  imageEntryTypeUid: 8f0fb84e-689d-4c12-94eb-bf03b425c3cb # Image
+  imageFieldUid: 5849c1db-f3f8-4e02-9e05-765b45083ee8
+  imageMode: img
+  js: null
+  jsFile: null
+  options: null
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  toolbar:
+    - heading
+    - '|'
+    - bold
+    - italic
+    - link
+    - '|'
+    - createEntry
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

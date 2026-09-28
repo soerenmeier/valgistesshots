@@ -1,16 +1,49 @@
-dateModified: 1790615997
+dateModified: 1790621553
 email:
   fromEmail: support@meierlabs.xh
   fromName: "Valgiste's Shots"
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  assets:
+    hasUrls: true
+    name: Assets
+    settings:
+      path: '@webroot/assets'
+    type: craft\fs\Local
+    url: $CRAFT_BASE_CP_URL/assets
 meta:
   __names__:
+    0a31ebfe-8440-4c22-a4d3-13df13cc7c8f: Home # Home
+    1fd80e84-0ac5-43b7-a0ee-6013a7cf44e6: Video # Video
+    4a325d08-d837-48a6-bc6d-20e5e11e8d5c: Topic # Topic
     7da943dd-0184-441c-a475-4ac29ba654c6: "Valgiste's Shots" # Valgiste's Shots
+    7efd50be-7c91-458b-883c-14b15c3a9055: Pages # Pages
+    8f0fb84e-689d-4c12-94eb-bf03b425c3cb: Image # Image
+    9bd77605-d325-4b4b-b70b-0b0711e6c213: Page # Page
+    14a507e4-2e91-44cc-8b0a-326f6090a58d: 'Page Title' # Page Title
+    21eb40aa-9362-4d89-a48f-ca390516d3e7: Topics # Topics
+    58c604cf-b782-40bb-9e15-1f0ae16622d1: Assets # Assets
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
+    a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
+    c806ff26-9920-4165-8fc7-fd16578eacdb: Image # Image
+    c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Images and Videos' # Images and Videos
+    e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 5.6.0.0
   craft-crelte:
     edition: solo
+    enabled: true
+    schemaVersion: 1.0.0
+  dashboard-begone:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  meierlabs-extensions:
+    edition: standard
     enabled: true
     schemaVersion: 1.0.0
 system:
