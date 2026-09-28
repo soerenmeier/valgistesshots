@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General Configuration
  *
@@ -12,6 +13,7 @@ use craft\config\GeneralConfig;
 use craft\helpers\App;
 
 /* craft base settings */
+
 $baseSettings = GeneralConfig::create()
 	// Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
 	->defaultWeekStartDay(1)
@@ -25,7 +27,7 @@ $customSettings = $baseSettings
 	->convertFilenamesToAscii(true)
 
 	// Max upload size
-	->maxUploadFileSize((float) (App::env("MAX_UPLOAD_FILE_SIZE") ?? 16777216))
+	->maxUploadFileSize((float) (App::env("MAX_UPLOAD_FILE_SIZE") ?? 104857600))
 
 	// Search term options
 	->defaultSearchTermOptions([

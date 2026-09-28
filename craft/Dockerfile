@@ -2,8 +2,8 @@
 FROM ghcr.io/craftcms/image:8.4
 
 # Override PHP configuration via environment variables
-ENV PHP_UPLOAD_MAX_FILESIZE=28M
-ENV PHP_POST_MAX_SIZE=28M
+ENV PHP_UPLOAD_MAX_FILESIZE=100M
+ENV PHP_POST_MAX_SIZE=128M
 ENV PHP_MAX_EXECUTION_TIME=300
 
 # Install Composer manually
