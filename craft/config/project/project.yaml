@@ -1,4 +1,4 @@
-dateModified: 1790621553
+dateModified: 1790622549
 email:
   fromEmail: support@meierlabs.xh
   fromName: "Valgiste's Shots"
@@ -16,6 +16,7 @@ meta:
     0a31ebfe-8440-4c22-a4d3-13df13cc7c8f: Home # Home
     1fd80e84-0ac5-43b7-a0ee-6013a7cf44e6: Video # Video
     4a325d08-d837-48a6-bc6d-20e5e11e8d5c: Topic # Topic
+    6e98f7c2-71ef-4550-874e-356b2428be6a: w1920 # w1920
     7da943dd-0184-441c-a475-4ac29ba654c6: "Valgiste's Shots" # Valgiste's Shots
     7efd50be-7c91-458b-883c-14b15c3a9055: Pages # Pages
     8f0fb84e-689d-4c12-94eb-bf03b425c3cb: Image # Image
@@ -23,11 +24,13 @@ meta:
     14a507e4-2e91-44cc-8b0a-326f6090a58d: 'Page Title' # Page Title
     21eb40aa-9362-4d89-a48f-ca390516d3e7: Topics # Topics
     58c604cf-b782-40bb-9e15-1f0ae16622d1: Assets # Assets
+    593c0eef-2c24-4785-99b5-7df6e3851a3d: w800 # w800
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
     a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
     c806ff26-9920-4165-8fc7-fd16578eacdb: Image # Image
     c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Images and Videos' # Images and Videos
+    de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
 plugins:
   ckeditor:

@@ -23,7 +23,9 @@
 	<title>{entry?.title ?? 'Not Found'}</title>
 </svelte:head>
 
-<Header {entry} />
+{#if entry?.typeHandle !== 'home'}
+	<Header />
+{/if}
 
 <!-- update entire component if page changes -->
 {#key entry?.url}

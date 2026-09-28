@@ -1,0 +1,5 @@
+import { processCke } from '@/lib/queriesUtils';
+
+export function transform(resp: any) {
+	processCke(resp.entry?.pageIntroCke);
+}
