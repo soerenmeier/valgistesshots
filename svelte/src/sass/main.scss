@@ -1,0 +1,23 @@
+@use 'vars' as *;
+@use 'resets';
+
+:root {
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smooth: always;
+	font-size: 16px;
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-family: var(--font-sans);
+	color: var(--text-black);
+	font-size: var(--body-md);
+	line-height: var(--body-lh-md);
+	font-weight: 400;
+}

@@ -1,0 +1,5 @@
+isPublic: false
+name: Endpoint
+scope:
+  - 'sites.af3c45b7-8c3a-4f8d-8812-6d40269f5202:read' # Valgiste's Shots
+  - 'crelte.all:read'

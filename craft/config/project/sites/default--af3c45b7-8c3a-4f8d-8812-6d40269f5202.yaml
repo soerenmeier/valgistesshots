@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en
+name: "Valgiste's Shots"
+primary: true
+siteGroup: 7da943dd-0184-441c-a475-4ac29ba654c6 # Valgiste's Shots
+sortOrder: 1

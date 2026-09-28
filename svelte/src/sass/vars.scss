@@ -1,0 +1,50 @@
+$bpTablet: 768px;
+$bpDesktop: 1111px;
+
+@mixin tablet {
+	@media (min-width: $bpTablet) {
+		@content;
+	}
+}
+
+@mixin max-tablet {
+	@media (max-width: calc($bpTablet - 1px)) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $bpDesktop) {
+		@content;
+	}
+}
+
+@mixin max-desktop {
+	@media (max-width: calc($bpDesktop - 1px)) {
+		@content;
+	}
+}
+
+@mixin hover {
+	@media (hover: hover) {
+		@content;
+	}
+}
+
+@mixin hover-tablet {
+	@media (min-width: $bpTablet) and (hover: hover) {
+		@content;
+	}
+}
+
+@mixin hover-desktop {
+	@media (min-width: $bpDesktop) and (hover: hover) {
+		@content;
+	}
+}
+
+// @mixin wrap {
+// 	max-width: var(--max-width);
+// 	margin-inline: auto;
+// 	padding-inline: var(--sx-body);
+// }
