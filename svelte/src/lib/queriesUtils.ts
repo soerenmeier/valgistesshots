@@ -4,7 +4,7 @@ function processChunks(chunks: null | any[]) {
 	const processedChunks: any[] = [];
 
 	for (const chunk of chunks) {
-		if (chunk.html) {
+		if (chunk.html || chunk.image?.length) {
 			processedChunks.push(chunk);
 		} else if (chunk.btn?.url) {
 			const previous = processedChunks[processedChunks.length - 1];

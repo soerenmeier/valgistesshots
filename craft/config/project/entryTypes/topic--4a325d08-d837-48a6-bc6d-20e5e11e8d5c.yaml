@@ -54,6 +54,23 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-09-28T19:52:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3e495542-aca6-4e31-a5db-b0819ff4e192 # Topic Image
+            handle: previewImage
+            instructions: null
+            label: 'Preview Image'
+            oldFieldUid: 3e495542-aca6-4e31-a5db-b0819ff4e192 # Topic Image
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6e356ede-0d1f-4331-a811-c6bf848af0dd
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2026-09-28T18:43:46+00:00'
             editCondition: null
             elementCondition: null

@@ -1,31 +1,29 @@
 columnSuffix: null
-handle: assets
+handle: topicImage
 instructions: null
-name: 'Images and Videos'
+name: 'Topic Image'
 searchable: false
 settings:
   allowSelfRelations: false
   allowSubfolders: false
   allowUploads: true
-  allowedKinds:
-    - image
-    - video
+  allowedKinds: null
   branchLimit: null
   defaultPlacement: end
   defaultUploadLocationSource: 'volume:58c604cf-b782-40bb-9e15-1f0ae16622d1' # Assets
   defaultUploadLocationSubpath: '{entry.slug}'
   maintainHierarchy: false
-  maxRelations: null
+  maxRelations: 1
   minRelations: null
   previewMode: full
-  restrictFiles: true
+  restrictFiles: false
   restrictLocation: false
   restrictedDefaultUploadSubpath: null
   restrictedLocationSource: 'volume:58c604cf-b782-40bb-9e15-1f0ae16622d1' # Assets
   restrictedLocationSubpath: null
   selectionLabel: null
   showSearchInput: true
-  showSiteMenu: true
+  showSiteMenu: false
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources: '*'

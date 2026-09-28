@@ -2,6 +2,15 @@ fragment Html on CkeditorMarkup {
   html
 }
 
+fragment AboutImage on image_Entry {
+  image {
+    url(transform: "w1920")
+    width(transform: "w1920")
+    height(transform: "w1920")
+    alt
+  }
+}
+
 query ($uri: [String], $siteId: [QueryArgument]) {
   entry(uri: $uri, siteId: $siteId) {
     id
@@ -18,6 +27,12 @@ query ($uri: [String], $siteId: [QueryArgument]) {
       pageIntroCke {
         chunks {
           ...Html
+        }
+      }
+      aboutCke {
+        chunks {
+          ...Html
+          ...AboutImage
         }
       }
     }

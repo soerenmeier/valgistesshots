@@ -1,4 +1,4 @@
-dateModified: 1790622549
+dateModified: 1790625126
 email:
   fromEmail: support@meierlabs.xh
   fromName: "Valgiste's Shots"
@@ -15,6 +15,7 @@ meta:
   __names__:
     0a31ebfe-8440-4c22-a4d3-13df13cc7c8f: Home # Home
     1fd80e84-0ac5-43b7-a0ee-6013a7cf44e6: Video # Video
+    3e495542-aca6-4e31-a5db-b0819ff4e192: 'Topic Image' # Topic Image
     4a325d08-d837-48a6-bc6d-20e5e11e8d5c: Topic # Topic
     6e98f7c2-71ef-4550-874e-356b2428be6a: w1920 # w1920
     7da943dd-0184-441c-a475-4ac29ba654c6: "Valgiste's Shots" # Valgiste's Shots

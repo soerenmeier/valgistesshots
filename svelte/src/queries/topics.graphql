@@ -1,0 +1,18 @@
+query ($siteId: [QueryArgument]) {
+  topics: entries(section: "topics", siteId: $siteId) {
+    id
+    title
+    url
+    ... on topic_Entry {
+      pageTitle
+      previewImage {
+        w800: url(transform: "w800")
+        w1920: url(transform: "w1920")
+        width(transform: "w800")
+        height(transform: "w800")
+        alt
+        title
+      }
+    }
+  }
+}
