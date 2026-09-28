@@ -4,6 +4,7 @@ scope:
   - 'sites.af3c45b7-8c3a-4f8d-8812-6d40269f5202:read' # Valgiste's Shots
   - 'sections.7efd50be-7c91-458b-883c-14b15c3a9055:read' # Pages
   - 'sections.21eb40aa-9362-4d89-a48f-ca390516d3e7:read' # Topics
+  - 'globalsets.4ddae6c7-a20d-4d07-ae50-761b87b87aec:read' # Header
   - 'nestedentryfields.e5d61383-819f-4e37-a11b-7cfe3793ed83:read' # About
   - 'nestedentryfields.a5016d49-7f9c-4d09-a668-aace6e62806c:read' # Intro
   - 'volumes.58c604cf-b782-40bb-9e15-1f0ae16622d1:read' # Assets

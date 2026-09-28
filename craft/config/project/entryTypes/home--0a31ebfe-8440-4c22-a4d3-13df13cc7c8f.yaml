@@ -113,6 +113,46 @@ fieldLayouts:
         name: About
         uid: 90832daa-fa5c-46f3-b275-a885052b893d
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-28T21:17:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 9ef5cace-b52c-491f-9f1e-8ffdb11a8764 # Title
+            handle: contactTitle
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 481bbbe0-767a-4fe8-b492-fd110d17aa4a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-28T21:17:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 220b8ac9-c2e7-464f-b4b2-377ba53ca1d9 # Text
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f9305aa4-701f-4a4f-b028-445411e60fb7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Contact
+        uid: a7e0a85d-2b8b-4e5b-9c50-8dc3ea284a1b
+        userCondition: null
     thumbFieldKey: null
 handle: home
 hasTitleField: true

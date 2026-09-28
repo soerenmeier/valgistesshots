@@ -1,4 +1,34 @@
-dateModified: 1790627555
+dateModified: 1790631024
+elementSources:
+  craft\elements\Entry:
+    -
+      key: 'section:7efd50be-7c91-458b-883c-14b15c3a9055' # Pages
+      page: Entries
+      type: native
+    -
+      key: 'section:21eb40aa-9362-4d89-a48f-ca390516d3e7' # Topics
+      page: Entries
+      type: native
+    -
+      heading: ''
+      key: 'heading:7d87b425-bfb4-476c-b214-1f7bd924bae7'
+      page: Entries
+      type: heading
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: '*'
+      page: Entries
+      tableAttributes:
+        - status
+        - section
+        - postDate
+        - expiryDate
+        - link
+      type: native
 email:
   fromEmail: support@meierlabs.xh
   fromName: "Valgiste's Shots"
@@ -18,22 +48,25 @@ meta:
     3e495542-aca6-4e31-a5db-b0819ff4e192: 'Topic Image' # Topic Image
     3f4f4974-59b8-47a6-be38-06b9d683090a: w300 # w300
     4a325d08-d837-48a6-bc6d-20e5e11e8d5c: Topic # Topic
+    4da69967-8846-4114-be16-c25a288cb47c: 'Contact link' # Contact link
+    4ddae6c7-a20d-4d07-ae50-761b87b87aec: Header # Header
     6e98f7c2-71ef-4550-874e-356b2428be6a: w1920 # w1920
     7da943dd-0184-441c-a475-4ac29ba654c6: "Valgiste's Shots" # Valgiste's Shots
     7efd50be-7c91-458b-883c-14b15c3a9055: Pages # Pages
     8f0fb84e-689d-4c12-94eb-bf03b425c3cb: Image # Image
     9bd77605-d325-4b4b-b70b-0b0711e6c213: Page # Page
+    9ef5cace-b52c-491f-9f1e-8ffdb11a8764: Title # Title
     14a507e4-2e91-44cc-8b0a-326f6090a58d: 'Page Title' # Page Title
     21eb40aa-9362-4d89-a48f-ca390516d3e7: Topics # Topics
     58c604cf-b782-40bb-9e15-1f0ae16622d1: Assets # Assets
     86e77812-bb08-4036-a2b4-60ba8f9f4f08: Text # Text
+    220b8ac9-c2e7-464f-b4b2-377ba53ca1d9: Text # Text
     593c0eef-2c24-4785-99b5-7df6e3851a3d: w800 # w800
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
     a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
     c806ff26-9920-4165-8fc7-fd16578eacdb: Image # Image
     c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Images and Videos' # Images and Videos
-    dc695121-71e4-4142-bbe5-3e725705c3f7: 'Second word' # Second word
     de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
 plugins:
@@ -41,6 +74,16 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 5.6.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      prependSender: 'On behalf of'
+      prependSubject: "New message from Valgiste's Shots"
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: support@meierlabs.ch
   craft-crelte:
     edition: solo
     enabled: true
@@ -53,6 +96,11 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      ckeFontSizes: '1'
+      ckeHiddenList: '1'
+      linkFieldCompact: '1'
+      ungroupMatrixButtons: '1'
 system:
   edition: solo
   live: true

@@ -1,7 +1,8 @@
 <script>
-	import { getSite } from 'crelte';
+	import { getGlobal, getSite } from 'crelte';
 
 	const site = getSite();
+	const header = getGlobal('header');
 	let { entry } = $props();
 </script>
 
@@ -17,12 +18,25 @@
 			<a
 				class="brand"
 				href={$site.url.href}
-				aria-label={$site.name ?? 'Home'}
+				aria-label={$site.name || undefined}
 			>
 				<img src="/assets/valgistesshots-logo.svg" alt="" />
 			</a>
 		{/if}
-		<a class="email" href="mailto:hello@dunkel.cc">Email</a>
+		{#if $header?.contactLink?.url}
+			<a
+				class="email"
+				href={$header.contactLink.url}
+				target={$header.contactLink.target || undefined}
+				rel={$header.contactLink.target === '_blank'
+					? 'noopener noreferrer'
+					: undefined}
+			>
+				{$header.contactLink.label ||
+					$header.contactLink.defaultLabel ||
+					$header.contactLink.url}
+			</a>
+		{/if}
 	</nav>
 </header>
 

@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: secondWord
+handle: sectTitle
 instructions: null
-name: 'Second word'
+name: Title
 searchable: false
 settings:
   byteLimit: null

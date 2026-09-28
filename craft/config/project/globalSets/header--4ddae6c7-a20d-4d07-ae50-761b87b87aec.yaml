@@ -1,0 +1,31 @@
+fieldLayouts:
+  f90a7495-baf5-43c2-8483-eb463d479700:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-28T21:14:59+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4da69967-8846-4114-be16-c25a288cb47c # Contact link
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 845809a0-797e-4ae3-91b1-08dcdf12f734
+            userCondition: null
+            warning: null
+            width: 100
+        name: Header
+        uid: 839c5184-2879-4f87-9bf9-a151863de7f9
+        userCondition: null
+    thumbFieldKey: null
+handle: header
+name: Header
+sortOrder: 1

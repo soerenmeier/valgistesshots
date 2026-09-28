@@ -47,6 +47,12 @@ query ($uri: [String], $siteId: [QueryArgument]) {
           ...AboutImage
         }
       }
+      contactTitle
+      sectIntroCke {
+        chunks {
+          ...Html
+        }
+      }
     }
   }
 }

@@ -10,6 +10,7 @@
 	import HomeIntro from '@/components/home/HomeIntro.svelte';
 	import About from '@/components/home/About.svelte';
 	import TopicShowcase from '@/components/home/TopicShowcase.svelte';
+	import Contact from '@/components/home/Contact.svelte';
 
 	let { entry, topics = [] } = $props();
 	let scroller;
@@ -63,6 +64,7 @@
 
 		<About aboutCke={entry.aboutCke} />
 		<TopicShowcase {topics} />
+		<Contact title={entry.contactTitle} intro={entry.sectIntroCke} />
 	</div>
 </div>
 

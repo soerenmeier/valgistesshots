@@ -185,6 +185,7 @@
 			min-width: 100vw;
 			gap: clamp(9rem, 19vw, 20rem);
 			padding-block: clamp(3rem, 8vh, 6rem);
+			padding-inline-end: clamp(8rem, 20vw, 24rem);
 		}
 
 		.card {
