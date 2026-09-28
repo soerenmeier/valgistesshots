@@ -9,7 +9,9 @@ const desktop = window.matchMedia('(min-width: 1111px)');
 new Lenis({
 	autoRaf: true,
 	allowNestedScroll: true,
-	prevent: node => desktop.matches && node.classList.contains('home-panels'),
+	prevent: node =>
+		node.classList.contains('topic-gallery') ||
+		(desktop.matches && node.classList.contains('home-panels')),
 });
 
 main({ app, errorPage });

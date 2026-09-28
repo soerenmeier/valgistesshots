@@ -23,7 +23,7 @@
 	<title>{entry?.title ?? 'Not Found'}</title>
 </svelte:head>
 
-<Header />
+<Header {entry} />
 <BottomCorners />
 
 <!-- update entire component if page changes -->

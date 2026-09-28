@@ -2,6 +2,7 @@
 	import { getSite } from 'crelte';
 
 	const site = getSite();
+	let { entry } = $props();
 </script>
 
 <header class="header">
@@ -10,13 +11,17 @@
 
 	<nav aria-label="Main navigation">
 		<a class="home" href={$site.url.href}>Home</a>
-		<a
-			class="brand"
-			href={$site.url.href}
-			aria-label={$site.name ?? 'Home'}
-		>
-			<img src="/assets/valgistesshots-logo.svg" alt="" />
-		</a>
+		{#if entry?.typeHandle === 'topic'}
+			<h1 class="topic-title">{entry.title}</h1>
+		{:else}
+			<a
+				class="brand"
+				href={$site.url.href}
+				aria-label={$site.name ?? 'Home'}
+			>
+				<img src="/assets/valgistesshots-logo.svg" alt="" />
+			</a>
+		{/if}
 		<a class="email" href="mailto:hello@dunkel.cc">Email</a>
 	</nav>
 </header>
@@ -31,6 +36,16 @@
 		height: clamp(7rem, 13vw, 11rem);
 		color: #fff;
 		mix-blend-mode: difference;
+	}
+
+	.topic-title {
+		justify-self: center;
+		margin-top: -0.4rem;
+		font-family: var(--font-serif);
+		font-size: clamp(1.75rem, 3vw, 3rem);
+		font-weight: 400;
+		line-height: 1;
+		text-align: center;
 	}
 
 	.corner {
@@ -108,12 +123,17 @@
 			font-size: 0.75rem;
 		}
 
-		.brand {
+		.brand,
+		.topic-title {
 			margin-top: 0;
 		}
 
 		.brand img {
 			width: clamp(6rem, 31vw, 9rem);
+		}
+
+		.topic-title {
+			font-size: clamp(1.25rem, 5vw, 1.75rem);
 		}
 	}
 </style>

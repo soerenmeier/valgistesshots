@@ -19,6 +19,18 @@ query ($uri: [String], $siteId: [QueryArgument]) {
     sectionHandle
     typeHandle
     title
+    ... on topic_Entry {
+      assets(kind: "image") {
+        id
+        thumb: url(transform: "w300")
+        w800: url(transform: "w800")
+        image: url(transform: "w1920")
+        width(transform: "w1920")
+        height(transform: "w1920")
+        alt
+        title
+      }
+    }
     ... on home_Entry {
       pageTitle
       video {
