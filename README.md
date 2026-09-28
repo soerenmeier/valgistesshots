@@ -38,4 +38,4 @@ ddev npm run dev
 
 ## Deployment
 
-See [deploy/README.md](deploy/README.md) for the PostgreSQL setup, Docker Compose deployment, Riji commands, and production domains (`valgistesshorts.meierlabs.dev` and `admin.valgistesshorts.meierlabs.dev`).
+See [deploy/README.md](deploy/README.md) for local PostgreSQL setup. The production routes in [docker/compose.yaml](docker/compose.yaml) use `valgistesshots.meierlabs.dev` and `admin.valgistesshots.meierlabs.dev`; image publishing is configured in [riji.rhai](riji.rhai).
