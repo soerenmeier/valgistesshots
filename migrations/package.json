@@ -1,0 +1,13 @@
+{
+	"name": "valgistesshots-migrations",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"export": "node src/export-legacy-projects.mjs",
+		"import": "node src/import-legacy-projects.mjs",
+		"test": "node --test src/import-legacy-projects.test.mjs"
+	},
+	"engines": {
+		"node": ">=21.0"
+	}
+}

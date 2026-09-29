@@ -40,10 +40,6 @@ ddev npm run dev
 
 See [deploy/README.md](deploy/README.md) for local PostgreSQL setup. The production routes in [docker/compose.yaml](docker/compose.yaml) use `valgistesshots.meierlabs.dev` and `admin.valgistesshots.meierlabs.dev`; image publishing is configured in [riji.rhai](riji.rhai).
 
-## Legacy project export
+## Legacy project migration
 
-Run `node scripts/export-legacy-projects.mjs` from the project root to refresh [migration/legacy-projects.json](migration/legacy-projects.json), or pass an output filename as the first argument. This reads the six public projects linked from `https://valgistesshots.com/work`; it does not access the new CMS. It overwrites the chosen output file only after every project has been fetched successfully.
-
-Each project records its original URL and slug, title, suggested `firstWord`/`secondWord`, preview image URL, and ordered `images` and `videos` arrays. `position` is the shared zero-based order across both arrays. Image `url` uses the original Adobe Portfolio lightbox file when exposed, otherwise the largest image URL on the page. Video entries are Adobe embed URLs, **not** downloadable video assets. The JSON contains external URLs, not image files; keep the old site/CDN available until the files have been downloaded and imported.
-
-A later import must upload the images to Craft's Assets volume, create or update entries in the `topics` section, set their required `previewImage` and ordered `assets` relations, and decide how to handle the videos. The export does not create or modify entries on `valgistesshots.meierlabs.dev`; that step requires a writable Craft integration (and suitable credentials) or a Craft-side import command. Review the suggested word split and any missing image alt text before publishing.
+See [migrations/README.md](migrations/README.md) for exporting projects from the old site and importing their images and topic entries into Craft. From the project root, use `npm --prefix migrations run import` (not `ddev npm run import`, which always runs in `svelte/`).
