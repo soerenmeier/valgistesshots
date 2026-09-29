@@ -1,0 +1,43 @@
+isPublic: false
+name: Private
+scope:
+  - 'sites.af3c45b7-8c3a-4f8d-8812-6d40269f5202:read' # Valgiste's Shots
+  - 'elements.drafts:read'
+  - 'elements.revisions:read'
+  - 'elements.inactive:read'
+  - 'sections.7efd50be-7c91-458b-883c-14b15c3a9055:read' # Pages
+  - 'sections.21eb40aa-9362-4d89-a48f-ca390516d3e7:read' # Topics
+  - 'nestedentryfields.e5d61383-819f-4e37-a11b-7cfe3793ed83:read' # About
+  - 'nestedentryfields.a5016d49-7f9c-4d09-a668-aace6e62806c:read' # Intro
+  - 'nestedentryfields.220b8ac9-c2e7-464f-b4b2-377ba53ca1d9:read' # Text
+  - 'volumes.58c604cf-b782-40bb-9e15-1f0ae16622d1:read' # Assets
+  - 'globalsets.4ddae6c7-a20d-4d07-ae50-761b87b87aec:read' # Header
+  - 'usergroups.solo:read'
+  - 'crelte.all:read'
+  - 'sections.7efd50be-7c91-458b-883c-14b15c3a9055:edit' # Pages
+  - 'sections.7efd50be-7c91-458b-883c-14b15c3a9055:create' # Pages
+  - 'sections.7efd50be-7c91-458b-883c-14b15c3a9055:save' # Pages
+  - 'sections.7efd50be-7c91-458b-883c-14b15c3a9055:delete' # Pages
+  - 'sections.21eb40aa-9362-4d89-a48f-ca390516d3e7:edit' # Topics
+  - 'sections.21eb40aa-9362-4d89-a48f-ca390516d3e7:create' # Topics
+  - 'sections.21eb40aa-9362-4d89-a48f-ca390516d3e7:save' # Topics
+  - 'sections.21eb40aa-9362-4d89-a48f-ca390516d3e7:delete' # Topics
+  - 'nestedentryfields.e5d61383-819f-4e37-a11b-7cfe3793ed83:edit' # About
+  - 'nestedentryfields.e5d61383-819f-4e37-a11b-7cfe3793ed83:create' # About
+  - 'nestedentryfields.e5d61383-819f-4e37-a11b-7cfe3793ed83:save' # About
+  - 'nestedentryfields.e5d61383-819f-4e37-a11b-7cfe3793ed83:delete' # About
+  - 'nestedentryfields.a5016d49-7f9c-4d09-a668-aace6e62806c:edit' # Intro
+  - 'nestedentryfields.a5016d49-7f9c-4d09-a668-aace6e62806c:create' # Intro
+  - 'nestedentryfields.a5016d49-7f9c-4d09-a668-aace6e62806c:save' # Intro
+  - 'nestedentryfields.a5016d49-7f9c-4d09-a668-aace6e62806c:delete' # Intro
+  - 'nestedentryfields.220b8ac9-c2e7-464f-b4b2-377ba53ca1d9:edit' # Text
+  - 'nestedentryfields.220b8ac9-c2e7-464f-b4b2-377ba53ca1d9:create' # Text
+  - 'nestedentryfields.220b8ac9-c2e7-464f-b4b2-377ba53ca1d9:save' # Text
+  - 'nestedentryfields.220b8ac9-c2e7-464f-b4b2-377ba53ca1d9:delete' # Text
+  - 'volumes.58c604cf-b782-40bb-9e15-1f0ae16622d1:edit' # Assets
+  - 'volumes.58c604cf-b782-40bb-9e15-1f0ae16622d1:create' # Assets
+  - 'volumes.58c604cf-b782-40bb-9e15-1f0ae16622d1:save' # Assets
+  - 'volumes.58c604cf-b782-40bb-9e15-1f0ae16622d1:delete' # Assets
+  - 'globalsets.4ddae6c7-a20d-4d07-ae50-761b87b87aec:edit' # Header
+  - 'directive:parseRefs'
+  - 'directive:transform'
