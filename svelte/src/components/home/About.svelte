@@ -55,7 +55,7 @@
 			height: 100svh;
 			min-height: 0;
 			flex: 0 0 100vw;
-			overflow-y: auto;
+			overflow: hidden;
 		}
 	}
 
