@@ -183,6 +183,23 @@
 		{:else}
 			<p>No images yet.</p>
 		{/if}
+
+		{#if images.length > 1}
+			<button
+				class="stage-nav previous"
+				type="button"
+				aria-label="Previous image"
+				disabled={active === 0}
+				onclick={() => selectImage(active - 1)}
+			></button>
+			<button
+				class="stage-nav next"
+				type="button"
+				aria-label="Next image"
+				disabled={active === images.length - 1}
+				onclick={() => selectImage(active + 1)}
+			></button>
+		{/if}
 	</div>
 
 	{#if images.length}
@@ -230,6 +247,7 @@
 	}
 
 	.stage {
+		position: relative;
 		display: flex;
 		min-width: 0;
 		min-height: 0;
@@ -244,6 +262,32 @@
 		max-width: 100%;
 		max-height: 100%;
 		object-fit: contain;
+	}
+
+	.stage-nav {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		width: 50%;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.stage-nav.previous {
+		left: 0;
+	}
+
+	.stage-nav.next {
+		right: 0;
+	}
+
+	.stage-nav:disabled {
+		pointer-events: none;
+	}
+
+	.stage-nav:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: -2px;
 	}
 
 	.thumbnails {
