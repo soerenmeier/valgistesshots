@@ -40,6 +40,27 @@ function attributes(tag) {
 	);
 }
 
+function bestRenderedUrl(attrs) {
+	const candidates = [
+		attrs["data-src"],
+		...(attrs["data-srcset"]
+			?.split(",")
+			.map((entry) => entry.trim().split(/\s+/)[0]) ?? []),
+	].filter(Boolean);
+
+	function usefulWidth(url) {
+		const crop = url.match(/_rwc_\d+x\d+x(\d+)x\d+x(\d+)\./);
+		if (crop) return Math.min(Number(crop[1]), Number(crop[2]));
+
+		return Number(url.match(/_rw_(\d+)\./)?.[1] ?? 0);
+	}
+
+	return candidates.reduce(
+		(best, url) => (usefulWidth(url) > usefulWidth(best) ? url : best),
+		candidates[0],
+	);
+}
+
 async function load(url) {
 	const response = await fetch(url);
 	if (!response.ok) {
@@ -61,27 +82,15 @@ function projectsFromIndex(html) {
 		const titleMatch = link.match(
 			/<div class="title preserve-whitespace">([\s\S]*?)<\/div>/,
 		);
-		const cover = link.match(
-			/<div class="cover cover-normal[^"]*"[^>]*>[\s\S]*?<img\b[^>]*>/,
-		);
-
 		if (
 			url.origin !== source.origin ||
 			!/^\/[a-z0-9-]+$/.test(url.pathname) ||
-			!titleMatch ||
-			!cover
+			!titleMatch
 		) {
 			throw new Error(`Unexpected project cover: ${href}`);
 		}
 
 		const title = decodeHtml(titleMatch[1]).trim().replace(/\s+/g, " ");
-		const previewImageUrl = attributes(cover[0].match(/<img\b[^>]*>/)[0])[
-			"data-src"
-		];
-		if (!previewImageUrl) {
-			throw new Error(`Missing preview image for ${url}`);
-		}
-
 		const [firstWord, ...rest] = title.split(" ");
 		projects.push({
 			sourceUrl: url.href,
@@ -89,7 +98,6 @@ function projectsFromIndex(html) {
 			title,
 			firstWord,
 			secondWord: rest.join(" "),
-			previewImageUrl,
 		});
 	}
 
@@ -141,7 +149,7 @@ function mediaFromProject(html, url) {
 			const imageUrl =
 				(classes.includes("e2e-site-project-module-image") &&
 					lightboxUrl) ||
-				attrs["data-src"];
+				bestRenderedUrl(attrs);
 			if (!imageUrl) {
 				throw new Error(`Missing image URL in ${url}`);
 			}
@@ -173,6 +181,7 @@ async function main() {
 			project,
 			mediaFromProject(await load(project.sourceUrl), project.sourceUrl),
 		);
+		project.previewImageUrl = project.images[0]?.url ?? null;
 		console.log(
 			`${project.title}: ${project.images.length} images, ${project.videos.length} videos`,
 		);

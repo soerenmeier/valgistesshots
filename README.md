@@ -42,4 +42,4 @@ See [deploy/README.md](deploy/README.md) for local PostgreSQL setup. The product
 
 ## Legacy project migration
 
-See [migrations/README.md](migrations/README.md) for exporting projects from the old site and importing their images and topic entries into Craft. From the project root, use `npm --prefix migrations run import` (not `ddev npm run import`, which always runs in `svelte/`).
+See [migrations/README.md](migrations/README.md) for exporting projects from the old site and importing their images and topic entries into Craft. Run the migration commands from the `migrations/` directory.

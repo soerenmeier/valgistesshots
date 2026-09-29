@@ -9,6 +9,7 @@ ENV PHP_MAX_EXECUTION_TIME=300
 # Install Composer manually
 USER root
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client && rm -rf /var/lib/apt/lists/*
 
 # Copy additional configuration files
 COPY docker/nginx.conf /etc/nginx/nginx.conf
@@ -32,3 +33,7 @@ COPY --chown=appuser:appgroup . .
 
 # Install dependencies with Composer
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+# Apply production project config before the web processes start.
+ENTRYPOINT ["/bin/sh", "/app/docker/start.sh"]
+HEALTHCHECK --interval=10s --timeout=5s --start-period=60s --retries=12 CMD curl -fsS http://127.0.0.1:8000/ || exit 1

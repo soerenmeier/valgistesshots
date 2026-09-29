@@ -35,13 +35,14 @@ const mutationFields = [
 	},
 ];
 
-test("checks permissions, imports images, and skips existing topics on retry", async () => {
+test("imports images into slug folders, reports misplaced assets, and retries safely", async () => {
 	const directory = await mkdtemp(join(tmpdir(), "legacy-projects-"));
 	const input = join(directory, "projects.json");
 	const files = new Map();
 	const entries = new Map();
 	let writes = 0;
 	let failFirstEntry = true;
+	let moveIntoFolder = false;
 	const server = createServer(async (request, response) => {
 		const chunks = [];
 		for await (const chunk of request) chunks.push(chunk);
@@ -54,13 +55,14 @@ test("checks permissions, imports images, and skips existing topics on retry", a
 		if (query.includes("__schema")) {
 			data = { __schema: { mutationType: { fields: mutationFields } } };
 		} else if (query.includes("save_assets_Asset(")) {
-			assert.match(
+			assert.equal(
 				variables._file.url,
-				/^https:\/\/cdn\.myportfolio\.com\//,
+				"https://cdn.myportfolio.com/image.jpg",
 			);
 			const saved = {
 				id: String(files.size + 1),
 				filename: variables._file.filename,
+				path: variables._file.filename,
 			};
 			files.set(saved.filename, saved);
 			writes++;
@@ -78,12 +80,22 @@ test("checks permissions, imports images, and skips existing topics on retry", a
 			}
 
 			assert.deepEqual(variables.previewImage, [1]);
-			assert.deepEqual(variables.assets, [2]);
+			assert.deepEqual(variables.assets, [1]);
 			assert.equal(variables.authorId, 7);
 			const saved = { id: "3", slug: variables.slug };
 			entries.set(saved.slug, saved);
+			if (moveIntoFolder) {
+				for (const file of files.values())
+					file.path = `${saved.slug}/${file.filename}`;
+			}
 			writes++;
 			data = { save_topics_topic_Entry: saved };
+		} else if (query.includes("assets(id: $ids")) {
+			data = {
+				assets: [...files.values()].filter((file) =>
+					variables.ids.includes(Number(file.id)),
+				),
+			};
 		} else if (query.includes("filename: $filename")) {
 			data = {
 				assets: [files.get(variables.filename[0])].filter(Boolean),
@@ -109,16 +121,34 @@ test("checks permissions, imports images, and skips existing topics on retry", a
 						firstWord: "Test",
 						secondWord: "Topic",
 						previewImageUrl:
-							"https://cdn.myportfolio.com/preview.jpg",
+							"https://cdn.myportfolio.com/old-cover.jpg",
 						images: [
 							{
 								position: 0,
 								url: "https://cdn.myportfolio.com/image.jpg",
 							},
+							{
+								position: 1,
+								url: "https://cdn.myportfolio.com/image-2.jpg",
+							},
 						],
 						videos: [
 							{
 								position: 1,
+								embedUrl: "https://www-ccv.adobe.io/embed",
+							},
+						],
+					},
+					{
+						slug: "video-only",
+						title: "Video Only",
+						firstWord: "Video",
+						secondWord: "Only",
+						previewImageUrl: null,
+						images: [],
+						videos: [
+							{
+								position: 0,
 								embedUrl: "https://www-ccv.adobe.io/embed",
 							},
 						],
@@ -138,29 +168,48 @@ test("checks permissions, imports images, and skips existing topics on retry", a
 				timeout: 10000,
 			});
 
-		assert.match((await run()).stdout, /Dry run: nothing was written/);
+		const checked = await run();
+		assert.match(checked.stdout, /Dry run: nothing was written/);
+		assert.match(checked.stdout, /Skipping Video Only/);
+		assert.match(checked.stdout, /2 projects, 2 images/);
+		const pilot = await run("--only", "test-topic", "--max-images", "1");
+		assert.match(pilot.stdout, /1 projects, 1 images/);
+		const applyPilot = () =>
+			run(
+				"--only",
+				"test-topic",
+				"--max-images",
+				"1",
+				"--apply",
+				"--images-only",
+				"--author-id",
+				"7",
+			);
+		await assert.rejects(
+			run("--only", "not-a-topic"),
+			/No project with slug/,
+		);
 		assert.equal(writes, 0);
 		await assert.rejects(
 			run("--apply", "--author-id", "7"),
 			/--images-only/,
 		);
 		assert.equal(writes, 0);
-		await assert.rejects(
-			run("--apply", "--images-only", "--author-id", "7"),
-			/Simulated entry failure/,
-		);
+		await assert.rejects(applyPilot(), /Simulated entry failure/);
+		assert.equal(writes, 1);
+		await assert.rejects(applyPilot(), /assets are not in test-topic\//);
 		assert.equal(writes, 2);
-		const retried = await run(
-			"--apply",
-			"--images-only",
-			"--author-id",
-			"7",
-		);
-		assert.match(retried.stdout, /Reusing legacy-test-topic-preview.jpg/);
-		assert.match(retried.stdout, /Created topic test-topic/);
+		assert.equal(entries.size, 1);
+
+		// Once the field location is fixed and the failed entry removed, the upload can be reused.
+		entries.clear();
+		moveIntoFolder = true;
+		const retried = await applyPilot();
+		assert.match(retried.stdout, /Reusing legacy-test-topic-001.jpg/);
+		assert.match(retried.stdout, /1 assets in test-topic\//);
 		assert.equal(writes, 3);
 		assert.match(
-			(await run("--apply", "--images-only", "--author-id", "7")).stdout,
+			(await applyPilot()).stdout,
 			/Skipping existing topic test-topic/,
 		);
 		assert.equal(writes, 3);

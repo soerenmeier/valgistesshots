@@ -15,6 +15,8 @@ function options(args) {
 		imagesOnly: false,
 		input: defaultInput,
 		authorId: null,
+		only: null,
+		maxImages: null,
 	};
 
 	for (let i = 0; i < args.length; i++) {
@@ -31,6 +33,14 @@ function options(args) {
 			case "--author-id":
 				result.authorId = Number(args[++i]);
 				break;
+			case "--only":
+				result.only = args[++i];
+				if (!result.only)
+					throw new Error("Pass a topic slug after --only.");
+				break;
+			case "--max-images":
+				result.maxImages = Number(args[++i]);
+				break;
 			default:
 				throw new Error(`Unknown option: ${args[i]}`);
 		}
@@ -39,10 +49,14 @@ function options(args) {
 	if (
 		!result.input ||
 		(result.authorId !== null &&
-			(!Number.isSafeInteger(result.authorId) || result.authorId < 1))
+			(!Number.isSafeInteger(result.authorId) || result.authorId < 1)) ||
+		(result.maxImages !== null &&
+			(!result.only ||
+				!Number.isSafeInteger(result.maxImages) ||
+				result.maxImages < 1))
 	) {
 		throw new Error(
-			"Provide a JSON input path and a positive numeric --author-id when specified.",
+			"Provide a JSON input path, a positive numeric --author-id, and use --max-images with --only when specified.",
 		);
 	}
 
@@ -170,7 +184,7 @@ function filename(project, position, url) {
 		.toLowerCase();
 	if (!ext) throw new Error(`Unsupported image URL: ${url}`);
 
-	return `legacy-${project.slug}-${position === null ? "preview" : String(position + 1).padStart(3, "0")}.${ext}`;
+	return `legacy-${project.slug}-${String(position + 1).padStart(3, "0")}.${ext}`;
 }
 
 async function assetId(project, position, url, saveAsset) {
@@ -198,12 +212,30 @@ async function assetId(project, position, url, saveAsset) {
 
 async function main() {
 	const settings = options(process.argv.slice(2));
-	const { projects } = JSON.parse(await readFile(settings.input, "utf8"));
-	if (!Array.isArray(projects) || !projects.length)
+	const { projects: exportedProjects } = JSON.parse(
+		await readFile(settings.input, "utf8"),
+	);
+	if (!Array.isArray(exportedProjects) || !exportedProjects.length)
 		throw new Error("No projects found in the export.");
 
+	const projects = exportedProjects
+		.filter((project) => !settings.only || project.slug === settings.only)
+		.map((project) => ({
+			...project,
+			images: project.images.slice(0, settings.maxImages ?? undefined),
+		}));
+	if (!projects.length)
+		throw new Error(`No project with slug ${settings.only} in the export.`);
+
+	const imageProjects = projects.filter((project) => project.images.length);
 	for (const project of projects) {
-		filename(project, null, project.previewImageUrl);
+		if (!project.images.length) {
+			if (!project.videos.length)
+				throw new Error(`No images or videos in ${project.slug}`);
+			console.log(
+				`Skipping ${project.title}: no image available for the required preview.`,
+			);
+		}
 		for (const image of project.images)
 			filename(project, image.position, image.url);
 	}
@@ -244,7 +276,7 @@ async function main() {
 		return;
 	}
 
-	for (const project of projects) {
+	for (const project of imageProjects) {
 		const { entry: existing } = await graphql(
 			'query ($slug: [String]) { entry(section: "topics", slug: $slug) { id slug } }',
 			{ slug: [project.slug] },
@@ -257,9 +289,6 @@ async function main() {
 		}
 
 		console.log(`Importing ${project.title}`);
-		const previewImage = Number(
-			await assetId(project, null, project.previewImageUrl, asset),
-		);
 		const imageIds = [];
 		for (const image of project.images) {
 			imageIds.push(
@@ -275,11 +304,37 @@ async function main() {
 			authorId: settings.authorId,
 			firstWord: project.firstWord,
 			secondWord: project.secondWord,
-			previewImage: [previewImage],
+			previewImage: [imageIds[0]],
 			assets: imageIds,
 		});
 		if (!saved?.id) throw new Error(`Could not save topic ${project.slug}`);
-		console.log(`  Created topic ${saved.slug} (ID ${saved.id})`);
+
+		const { assets: placedAssets } = await graphql(
+			'query ($ids: [QueryArgument]) { assets(id: $ids, volume: "assets", limit: 100) { id path } }',
+			{ ids: imageIds },
+		);
+		const misplaced = imageIds.filter(
+			(id) =>
+				!placedAssets.some(
+					(asset) =>
+						Number(asset.id) === id &&
+						asset.path.startsWith(`${project.slug}/`),
+				),
+		);
+		if (misplaced.length) {
+			const sample =
+				placedAssets
+					.slice(0, 3)
+					.map((asset) => asset.path)
+					.join(", ") || "no assets returned";
+			throw new Error(
+				`Topic ${project.slug} was created, but ${misplaced.length} assets are not in ${project.slug}/ (${placedAssets.length}/${imageIds.length} assets returned; sample paths: ${sample}). Check that both topic image fields have restricted location {slug} on the destination, then re-save this topic in Craft to move its related assets. An existing topic will be skipped on rerun.`,
+			);
+		}
+
+		console.log(
+			`  Created topic ${saved.slug} (ID ${saved.id}); ${imageIds.length} assets in ${project.slug}/`,
+		);
 	}
 }
 
