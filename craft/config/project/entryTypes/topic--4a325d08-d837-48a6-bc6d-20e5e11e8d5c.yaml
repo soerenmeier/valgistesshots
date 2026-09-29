@@ -62,7 +62,7 @@ fieldLayouts:
             handle: secondWord
             instructions: null
             label: 'Second word'
-            oldFieldUid: 86e77812-bb08-4036-a2b4-60ba8f9f4f08 # Text
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -92,11 +92,11 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: c7319607-602e-471d-bb5e-5b147aeaa1fd # Images and Videos
-            handle: null
+            fieldUid: c7319607-602e-471d-bb5e-5b147aeaa1fd # Topic Assets
+            handle: assets
             instructions: null
-            label: null
-            oldFieldUid: null
+            label: 'Images and Videos'
+            oldFieldUid: c7319607-602e-471d-bb5e-5b147aeaa1fd # Topic Assets
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

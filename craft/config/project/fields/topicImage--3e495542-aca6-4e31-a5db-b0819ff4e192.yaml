@@ -5,25 +5,26 @@ name: 'Topic Image'
 searchable: false
 settings:
   allowSelfRelations: false
-  allowSubfolders: false
+  allowSubfolders: true
   allowUploads: true
-  allowedKinds: null
+  allowedKinds:
+    - image
   branchLimit: null
   defaultPlacement: end
   defaultUploadLocationSource: 'volume:58c604cf-b782-40bb-9e15-1f0ae16622d1' # Assets
-  defaultUploadLocationSubpath: '{entry.slug}'
+  defaultUploadLocationSubpath: '{slug}'
   maintainHierarchy: false
   maxRelations: 1
   minRelations: null
   previewMode: full
-  restrictFiles: false
-  restrictLocation: false
+  restrictFiles: true
+  restrictLocation: true
   restrictedDefaultUploadSubpath: null
   restrictedLocationSource: 'volume:58c604cf-b782-40bb-9e15-1f0ae16622d1' # Assets
-  restrictedLocationSubpath: null
+  restrictedLocationSubpath: '{slug}'
   selectionLabel: null
   showSearchInput: true
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources: '*'

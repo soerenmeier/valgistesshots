@@ -1,4 +1,4 @@
-dateModified: 1790641113
+dateModified: 1790696155
 elementSources:
   craft\elements\Entry:
     -
@@ -67,7 +67,7 @@ meta:
     a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
     c806ff26-9920-4165-8fc7-fd16578eacdb: Image # Image
-    c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Images and Videos' # Images and Videos
+    c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Topic Assets' # Topic Assets
     de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
 plugins:
