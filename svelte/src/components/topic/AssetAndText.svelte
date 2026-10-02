@@ -1,9 +1,7 @@
 <script module>
 	import Blocks, { blockModules, loadBlocksData } from 'crelte/blocks';
 
-	const mods = blockModules(
-		import.meta.glob('./assetAndText/*.svelte', { eager: true }),
-	);
+	const mods = blockModules(import.meta.glob('./assetAndText/*.svelte'));
 
 	/** @type {import('crelte').LoadDataFn} */
 	export const loadAssetAndText = (cr, blocks) =>
