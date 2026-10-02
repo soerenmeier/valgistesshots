@@ -55,14 +55,13 @@
 	bind:this={scroller}
 >
 	<div class="home-track" bind:this={track}>
-		<HomeIntro
-			title={entry.title}
-			pageTitle={entry.pageTitle}
-			pageIntroCke={entry.pageIntroCke}
-			video={entry.video}
-		/>
+		<HomeIntro video={entry.video} />
 
-		<About aboutCke={entry.aboutCke} />
+		<About
+			aboutTitle={entry.aboutTitle}
+			aboutImage={entry.aboutImage}
+			aboutCke={entry.aboutCke}
+		/>
 		<TopicShowcase {topics} />
 		<Contact title={entry.contactTitle} intro={entry.sectIntroCke} />
 	</div>

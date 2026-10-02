@@ -1,13 +1,39 @@
 <script lang="ts">
 	import Richtext, { hasChunks } from '../cke/Richtext.svelte';
+	import Image from '../cke/Image.svelte';
 
-	let { aboutCke }: { aboutCke?: { chunks?: any[] } | null } = $props();
+	let {
+		aboutTitle,
+		aboutImage,
+		aboutCke,
+	}: {
+		aboutTitle?: string | null;
+		aboutImage?:
+			| {
+					url: string;
+					alt?: string | null;
+					width?: number | null;
+					height?: number | null;
+			  }[]
+			| null;
+		aboutCke?: { chunks?: any[] } | null;
+	} = $props();
+
+	let image = $derived(aboutImage?.[0]);
 </script>
 
-{#if hasChunks(aboutCke)}
+{#if aboutTitle?.trim() || image?.url || hasChunks(aboutCke)}
 	<section class="about" id="about" aria-label="About">
 		<div class="content">
-			<Richtext chunks={aboutCke?.chunks ?? []} />
+			{#if aboutTitle?.trim()}
+				<h2>{aboutTitle}</h2>
+			{/if}
+			{#if image?.url}
+				<Image {image} />
+			{/if}
+			{#if hasChunks(aboutCke)}
+				<Richtext chunks={aboutCke?.chunks ?? []} />
+			{/if}
 		</div>
 	</section>
 {/if}
@@ -27,6 +53,7 @@
 		margin-inline: auto;
 	}
 
+	h2,
 	.content :global(.rt .html h2) {
 		font-family: var(--font-serif);
 		font-size: clamp(3rem, 6vw, 5rem);
@@ -34,11 +61,11 @@
 		line-height: 1.1;
 	}
 
-	.content :global(.rt .image) {
+	.content :global(.image) {
 		margin-block: 0.75rem 2rem;
 	}
 
-	.content :global(.rt .image img) {
+	.content :global(.image img) {
 		width: 100%;
 		aspect-ratio: 2 / 1;
 		object-fit: cover;
@@ -55,12 +82,13 @@
 			height: 100svh;
 			min-height: 0;
 			flex: 0 0 100vw;
-			overflow: hidden;
+			overflow-x: hidden;
+			overflow-y: auto;
 		}
 	}
 
 	@media (max-width: 600px) {
-		.content :global(.rt .image img) {
+		.content :global(.image img) {
 			aspect-ratio: 4 / 3;
 		}
 	}

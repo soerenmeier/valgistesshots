@@ -91,6 +91,13 @@ query ($uri: [String], $siteId: [QueryArgument]) {
       video {
         url
       }
+      aboutTitle
+      aboutImage {
+        url(transform: "w1920")
+        width(transform: "w1920")
+        height(transform: "w1920")
+        alt
+      }
       aboutCke {
         chunks {
           ...Html
