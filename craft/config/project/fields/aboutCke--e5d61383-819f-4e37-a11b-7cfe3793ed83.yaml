@@ -24,8 +24,7 @@ settings:
           - expanded
           - true
   fullGraphqlData: true
-  headingLevels:
-    - '2'
+  headingLevels: false
   imageEntryTypeUid: 8f0fb84e-689d-4c12-94eb-bf03b425c3cb # Image
   imageFieldUid: 5849c1db-f3f8-4e02-9e05-765b45083ee8
   imageMode: img
@@ -41,8 +40,6 @@ settings:
   sourceEditingGroups:
     - __ADMINS__
   toolbar:
-    - heading
-    - '|'
     - bold
     - italic
     - link

@@ -6,7 +6,10 @@
 	let { entry } = $props();
 </script>
 
-<header class="header">
+<header
+	class="header"
+	class:topic-with-text={entry?.typeHandle === 'topicWithText'}
+>
 	<span class="corner left" aria-hidden="true"></span>
 	<span class="corner right" aria-hidden="true"></span>
 
@@ -95,6 +98,15 @@
 		text-transform: uppercase;
 	}
 
+	.topic-with-text {
+		--nav-inset: clamp(1.125rem, 2.3vw, 2.25rem);
+	}
+
+	.topic-with-text nav {
+		padding: calc(var(--corner-inset) + var(--nav-inset))
+			calc(var(--corner-inset) + var(--nav-inset) * 1.25) 0;
+	}
+
 	.home {
 		justify-self: start;
 	}
@@ -135,6 +147,10 @@
 			align-items: center;
 			padding-inline: calc(var(--frame-inset) + 0.75rem);
 			font-size: 0.75rem;
+		}
+
+		.topic-with-text nav {
+			padding-inline: calc(var(--corner-inset) + 0.75rem);
 		}
 
 		.brand,

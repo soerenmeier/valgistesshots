@@ -88,14 +88,8 @@ query ($uri: [String], $siteId: [QueryArgument]) {
       }
     }
     ... on home_Entry {
-      pageTitle
       video {
         url
-      }
-      pageIntroCke {
-        chunks {
-          ...Html
-        }
       }
       aboutCke {
         chunks {

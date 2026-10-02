@@ -105,7 +105,7 @@
 	}
 
 	.gallery {
-		padding-block: clamp(2.5rem, 6vh, 4rem) clamp(8rem, 18vh, 12rem);
+		padding-top: clamp(2.5rem, 6vh, 4rem);
 	}
 
 	@media (min-width: 768px) {
