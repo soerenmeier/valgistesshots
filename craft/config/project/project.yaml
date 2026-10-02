@@ -1,4 +1,4 @@
-dateModified: 1790952288
+dateModified: 1790954678
 elementSources:
   craft\elements\Entry:
     -
@@ -57,15 +57,18 @@ meta:
     8f0fb84e-689d-4c12-94eb-bf03b425c3cb: Image # Image
     9bd77605-d325-4b4b-b70b-0b0711e6c213: Page # Page
     9ef5cace-b52c-491f-9f1e-8ffdb11a8764: Title # Title
-    9f23e412-f9f2-4d07-b1a3-2fd8de0354c2: Image # Image
+    9f23e412-f9f2-4d07-b1a3-2fd8de0354c2: 'Image with Text' # Image with Text
     14a507e4-2e91-44cc-8b0a-326f6090a58d: 'Page Title' # Page Title
+    20c50491-d88a-4158-ba83-43f3993505c1: '3 Grid' # 3 Grid
     21eb40aa-9362-4d89-a48f-ca390516d3e7: Topics # Topics
     55ecb349-612d-4030-a761-62e22ed0e9d0: 'Topic Asset and Text' # Topic Asset and Text
     58c604cf-b782-40bb-9e15-1f0ae16622d1: Assets # Assets
-    73d95a70-94dd-4f88-af85-0144e8146b17: Video # Video
+    73d95a70-94dd-4f88-af85-0144e8146b17: 'Video with Text' # Video with Text
     86e77812-bb08-4036-a2b4-60ba8f9f4f08: Text # Text
     220b8ac9-c2e7-464f-b4b2-377ba53ca1d9: Text # Text
+    575c3ff2-668b-49fb-bd4f-f186f7401571: '2 Grid' # 2 Grid
     593c0eef-2c24-4785-99b5-7df6e3851a3d: w800 # w800
+    07388cad-b2a4-43b5-a445-69d54e50220e: 'Topic 3 images' # Topic 3 images
     47297fb6-1156-442d-8877-203536aedcc7: Private # Private
     88951ff3-ac46-4a7e-aa07-ad6fb7958153: 'Youtube or Vimeo URL' # Youtube or Vimeo URL
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
@@ -73,9 +76,12 @@ meta:
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
     c806ff26-9920-4165-8fc7-fd16578eacdb: Image # Image
     c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Topic Assets' # Topic Assets
+    d6dfc92f-b19a-45cc-a346-d114c88fe723: Fullscreen # Fullscreen
     de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
-    e35dccd7-e571-4e8d-ac9f-6dd94b67d815: 'Asset and Text' # Asset and Text
+    e35dccd7-e571-4e8d-ac9f-6dd94b67d815: 'Topic Content' # Topic Content
+    f6312cd6-98bd-4b2b-88d9-7be605c5545c: 'Topic 2 Images' # Topic 2 Images
+    fc271180-ae2e-47a7-a870-a80705c618e1: Displace # Displace
 plugins:
   ckeditor:
     edition: standard

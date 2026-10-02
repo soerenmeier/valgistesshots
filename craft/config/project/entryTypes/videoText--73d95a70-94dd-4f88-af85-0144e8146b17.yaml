@@ -74,10 +74,10 @@ fieldLayouts:
         uid: fa5d85cd-a719-4dcb-bb1e-5140f0726882
         userCondition: null
     thumbFieldKey: null
-handle: video
+handle: videoText
 hasTitleField: true
 icon: null
-name: Video
+name: 'Video with Text'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

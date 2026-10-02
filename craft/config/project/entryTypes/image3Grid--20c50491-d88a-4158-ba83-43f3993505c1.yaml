@@ -1,0 +1,60 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  a928f178-36c5-42ed-8fe9-3651e838a56c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-02T15:14:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 07388cad-b2a4-43b5-a445-69d54e50220e # Topic 3 images
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a7f4e94-9aaa-467d-b38c-b6b30d43001d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T15:14:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fc271180-ae2e-47a7-a870-a80705c618e1 # Displace
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 91c0e54a-b9f5-49e8-b1b7-743c3eeb2b29
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a6d59ddc-3ce1-41db-956c-93f908dc855c
+        userCondition: null
+    thumbFieldKey: null
+handle: image3Grid
+hasTitleField: false
+icon: null
+name: '3 Grid'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

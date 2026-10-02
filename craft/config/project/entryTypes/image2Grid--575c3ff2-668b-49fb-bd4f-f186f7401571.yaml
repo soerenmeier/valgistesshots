@@ -1,0 +1,60 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  c3d5919c-cf9a-40e2-be7a-e302a4282578:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-02T15:12:32+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f6312cd6-98bd-4b2b-88d9-7be605c5545c # Topic 2 Images
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: f6312cd6-98bd-4b2b-88d9-7be605c5545c # Topic 2 Images
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 326d3aec-74cb-40fb-a964-58a01c5a67be
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T15:12:32+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: fc271180-ae2e-47a7-a870-a80705c618e1 # Displace
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 567fb274-7652-48d5-84d2-f006647fadc1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fa795f46-a2d4-4c77-b825-f9d15095808e
+        userCondition: null
+    thumbFieldKey: null
+handle: image2Grid
+hasTitleField: false
+icon: null
+name: '2 Grid'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

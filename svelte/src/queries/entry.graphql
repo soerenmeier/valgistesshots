@@ -11,6 +11,16 @@ fragment AboutImage on image_Entry {
   }
 }
 
+fragment TopicImage on AssetInterface {
+  id
+  w800: url(transform: "w800")
+  w1920: url(transform: "w1920")
+  width(transform: "w1920")
+  height(transform: "w1920")
+  alt
+  title
+}
+
 query ($uri: [String], $siteId: [QueryArgument]) {
   entry(uri: $uri, siteId: $siteId) {
     id
@@ -32,20 +42,32 @@ query ($uri: [String], $siteId: [QueryArgument]) {
       }
     }
     ... on topicWithText_Entry {
-      assetAndText {
+      topicCtn {
         ... on EntryInterface {
           id
           typeHandle
           title
         }
-        ... on imageBlock_Entry {
+        ... on imageFullscreen_Entry {
           topicImage {
-            w800: url(transform: "w800")
-            w1920: url(transform: "w1920")
-            width(transform: "w1920")
-            height(transform: "w1920")
-            alt
-            title
+            ...TopicImage
+          }
+        }
+        ... on image2Grid_Entry {
+          displace
+          topic2Images(kind: "image") {
+            ...TopicImage
+          }
+        }
+        ... on image3Grid_Entry {
+          displace
+          topic3Images(kind: "image") {
+            ...TopicImage
+          }
+        }
+        ... on imageText_Entry {
+          topicImage {
+            ...TopicImage
           }
           sectIntroCke {
             chunks {
@@ -53,7 +75,7 @@ query ($uri: [String], $siteId: [QueryArgument]) {
             }
           }
         }
-        ... on video_Entry {
+        ... on videoText_Entry {
           youtubeOrVimeoUrl {
             url
           }

@@ -3,7 +3,7 @@
 
 	/** @type {import('crelte').LoadData} */
 	export const loadData = {
-		blocks: (cr, entry) => loadAssetAndText(cr, entry.assetAndText ?? []),
+		blocks: (cr, entry) => loadAssetAndText(cr, entry.topicCtn ?? []),
 	};
 </script>
 

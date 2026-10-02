@@ -1,27 +1,26 @@
 columnSuffix: null
-handle: topicImage
+handle: topic3Images
 instructions: null
-name: 'Topic Image'
+name: 'Topic 3 images'
 searchable: false
 settings:
   allowSelfRelations: false
   allowSubfolders: true
   allowUploads: true
-  allowedKinds:
-    - image
+  allowedKinds: null
   branchLimit: null
   defaultPlacement: end
   defaultUploadLocationSource: 'volume:58c604cf-b782-40bb-9e15-1f0ae16622d1' # Assets
   defaultUploadLocationSubpath: null
   maintainHierarchy: false
-  maxRelations: 1
+  maxRelations: 3
   minRelations: null
   previewMode: full
-  restrictFiles: true
+  restrictFiles: false
   restrictLocation: false
   restrictedDefaultUploadSubpath: null
   restrictedLocationSource: 'volume:58c604cf-b782-40bb-9e15-1f0ae16622d1' # Assets
-  restrictedLocationSubpath: null
+  restrictedLocationSubpath: '{slug}'
   selectionLabel: null
   showSearchInput: true
   showSiteMenu: true

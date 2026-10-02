@@ -1,0 +1,61 @@
+columnSuffix: null
+handle: topicCtn
+instructions: null
+name: 'Topic Content'
+searchable: false
+settings:
+  createButtonLabel: ungroup
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - d6dfc92f-b19a-45cc-a346-d114c88fe723 # Fullscreen
+        -
+          - group
+          - ungroup
+    -
+      __assoc__:
+        -
+          - uid
+          - 575c3ff2-668b-49fb-bd4f-f186f7401571 # 2 Grid
+        -
+          - group
+          - ungroup
+    -
+      __assoc__:
+        -
+          - uid
+          - 20c50491-d88a-4158-ba83-43f3993505c1 # 3 Grid
+        -
+          - group
+          - ungroup
+    -
+      __assoc__:
+        -
+          - uid
+          - 73d95a70-94dd-4f88-af85-0144e8146b17 # Video with Text
+        -
+          - group
+          - More
+    -
+      __assoc__:
+        -
+          - uid
+          - 9f23e412-f9f2-4d07-b1a3-2fd8de0354c2 # Image with Text
+        -
+          - group
+          - More
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -74,10 +74,10 @@ fieldLayouts:
         uid: 286758dc-82f3-4ea6-8c31-4031e7f6bdc6
         userCondition: null
     thumbFieldKey: null
-handle: imageBlock
+handle: imageText
 hasTitleField: true
 icon: null
-name: Image
+name: 'Image with Text'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
