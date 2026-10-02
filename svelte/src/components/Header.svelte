@@ -12,7 +12,7 @@
 
 	<nav aria-label="Main navigation">
 		<a class="home" href={$site.url.href}>Home</a>
-		{#if entry?.typeHandle === 'topic' || entry?.typeHandle === 'topicWithText'}
+		{#if entry?.typeHandle === 'topic'}
 			<h1 class="topic-title">{entry.title}</h1>
 		{:else}
 			<a

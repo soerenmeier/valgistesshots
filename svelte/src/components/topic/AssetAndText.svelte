@@ -19,9 +19,14 @@
 <style lang="scss">
 	.blocks {
 		display: flex;
-		max-width: 90rem;
+
 		flex-direction: column;
-		gap: clamp(4rem, 8vw, 8rem);
-		margin-inline: auto;
+		gap: 2vw;
+	}
+
+	@media (max-width: 767px) {
+		.blocks {
+			gap: 0.75rem;
+		}
 	}
 </style>

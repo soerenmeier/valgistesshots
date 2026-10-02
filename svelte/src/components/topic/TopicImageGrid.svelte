@@ -1,4 +1,6 @@
 <script lang="ts">
+	import TopicImage from './TopicImage.svelte';
+
 	type Image = {
 		id: string;
 		w800?: string | null;
@@ -21,8 +23,8 @@
 
 	let sizes = $derived(
 		columns === 2
-			? '(min-width: 768px) 50vw, 100vw'
-			: '(min-width: 768px) 33.33vw, 100vw',
+			? '(min-width: 768px) 49vw, 100vw'
+			: '(min-width: 768px) 32vw, 100vw',
 	);
 </script>
 
@@ -30,48 +32,34 @@
 	{#each images ?? [] as image, index (image.id)}
 		{#if image.w1920 || image.w800}
 			<div class="image" style:--column-index={index % columns}>
-				<img
-					src={image.w1920 || image.w800}
-					srcset={image.w800 && image.w1920
-						? `${image.w800} 800w, ${image.w1920} 1920w`
-						: undefined}
-					{sizes}
-					width={image.width ?? undefined}
-					height={image.height ?? undefined}
-					alt={image.alt ?? image.title ?? ''}
-					loading="lazy"
-					decoding="async"
-				/>
+				<TopicImage {image} {sizes} />
 			</div>
 		{/if}
 	{/each}
 </div>
 
-<style lang="scss">
+<style>
 	.image-grid {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
 		align-items: start;
-		gap: clamp(1rem, 2vw, 2rem);
+		gap: 0.75rem;
+		padding-inline: var(--frame-inset);
 	}
 
 	.image {
 		min-width: 0;
 	}
 
-	img {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
-
-	@include tablet {
+	@media (min-width: 768px) {
 		.image-grid {
 			grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+			gap: 2vw;
+			padding-inline: 0;
 		}
 
 		.displace .image {
-			margin-top: calc(var(--column-index) * clamp(2rem, 5vw, 5rem));
+			margin-top: calc(var(--column-index) * 10vw / (var(--columns) - 1));
 		}
 	}
 </style>

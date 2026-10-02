@@ -1,34 +1,26 @@
 <script>
+	import TopicImage from '../TopicImage.svelte';
+
 	let { topicImage = [] } = $props();
 	let image = $derived(topicImage[0]);
 </script>
 
 {#if image}
-	<figure class="fullscreen">
-		<img
-			src={image.w1920}
-			srcset="{image.w800} 800w, {image.w1920} 1920w"
-			sizes="100vw"
-			width={image.width}
-			height={image.height}
-			alt={image.alt ?? image.title ?? ''}
-			loading="lazy"
-		/>
-	</figure>
+	<div class="fullscreen">
+		<TopicImage {image} sizes="100vw" />
+	</div>
 {/if}
 
 <style>
 	.fullscreen {
-		position: relative;
-		left: 50%;
-		width: 100vw;
-		height: 100svh;
-		transform: translateX(-50%);
+		box-sizing: border-box;
+		width: 100%;
+		padding-inline: var(--frame-inset);
 	}
 
-	img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
+	@media (min-width: 768px) {
+		.fullscreen {
+			padding-inline: 0;
+		}
 	}
 </style>

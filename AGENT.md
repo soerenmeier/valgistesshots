@@ -10,5 +10,6 @@ If you want to look at a reference check out zandi.
 # Local development
 
 - No need to run Prettier manually; it runs automatically when a tool call saves a file.
+- Run `ddev npm run check` from the project root to validate Svelte and TypeScript changes.
 - The local site is available at `https://valgistesshots.ddev.site/`. Use it to check rendered pages and investigate runtime issues.
 - Render Matrix fields with `crelte/blocks` (`blockModules` and `loadBlocksData`), following the pattern in `zandi`.
