@@ -1,5 +1,5 @@
 <script module>
-	export const templates = import.meta.glob('@/templates/*.svelte');
+	export const templates = import.meta.glob('./templates/*.svelte');
 
 	/** @type {import('crelte').Config} */
 	export const config = {

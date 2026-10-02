@@ -6,6 +6,7 @@
 	--font-sans: 'Inclusive Sans', sans-serif;
 	--font-serif: 'Oranienbaum', serif;
 	--frame-inset: clamp(1.25rem, 4vw, 4rem);
+	--corner-inset: calc(var(--frame-inset) * 0.8);
 	--corner-size: clamp(2.5rem, 7vw, 7rem);
 }
 

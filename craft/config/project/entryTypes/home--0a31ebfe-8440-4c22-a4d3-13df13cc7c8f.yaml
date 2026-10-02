@@ -153,6 +153,29 @@ fieldLayouts:
         name: Contact
         uid: a7e0a85d-2b8b-4e5b-9c50-8dc3ea284a1b
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-10-02T14:44:48+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 0bf3feef-666a-4446-a9e4-f3c0090669ce # Trusted Partners Logo
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9465b07d-5ac7-446b-8004-07a07fa3d3ab
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Trusted Partners'
+        uid: cdf37de2-c130-4482-affc-8fc7f74e8324
+        userCondition: null
     thumbFieldKey: null
 handle: home
 hasTitleField: true

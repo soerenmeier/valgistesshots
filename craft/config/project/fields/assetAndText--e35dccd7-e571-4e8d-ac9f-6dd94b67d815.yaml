@@ -1,0 +1,37 @@
+columnSuffix: null
+handle: assetAndText
+instructions: null
+name: 'Asset and Text'
+searchable: false
+settings:
+  createButtonLabel: ungroup
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 73d95a70-94dd-4f88-af85-0144e8146b17 # Video
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 9f23e412-f9f2-4d07-b1a3-2fd8de0354c2 # Image
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

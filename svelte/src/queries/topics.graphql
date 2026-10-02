@@ -3,6 +3,18 @@ query ($siteId: [QueryArgument]) {
     id
     title
     url
+    ... on topicWithText_Entry {
+      firstWord
+      secondWord: lastWord
+      previewImage {
+        w800: url(transform: "w800")
+        w1920: url(transform: "w1920")
+        width(transform: "w800")
+        height(transform: "w800")
+        alt
+        title
+      }
+    }
     ... on topic_Entry {
       firstWord
       secondWord

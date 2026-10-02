@@ -31,6 +31,40 @@ query ($uri: [String], $siteId: [QueryArgument]) {
         title
       }
     }
+    ... on topicWithText_Entry {
+      assetAndText {
+        ... on EntryInterface {
+          id
+          typeHandle
+          title
+        }
+        ... on imageBlock_Entry {
+          topicImage {
+            w800: url(transform: "w800")
+            w1920: url(transform: "w1920")
+            width(transform: "w1920")
+            height(transform: "w1920")
+            alt
+            title
+          }
+          sectIntroCke {
+            chunks {
+              ...Html
+            }
+          }
+        }
+        ... on video_Entry {
+          youtubeOrVimeoUrl {
+            url
+          }
+          sectIntroCke {
+            chunks {
+              ...Html
+            }
+          }
+        }
+      }
+    }
     ... on home_Entry {
       pageTitle
       video {

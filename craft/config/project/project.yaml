@@ -1,4 +1,4 @@
-dateModified: 1790696155
+dateModified: 1790952288
 elementSources:
   craft\elements\Entry:
     -
@@ -44,6 +44,7 @@ fs:
 meta:
   __names__:
     0a31ebfe-8440-4c22-a4d3-13df13cc7c8f: Home # Home
+    0bf3feef-666a-4446-a9e4-f3c0090669ce: 'Trusted Partners Logo' # Trusted Partners Logo
     1fd80e84-0ac5-43b7-a0ee-6013a7cf44e6: Video # Video
     3e495542-aca6-4e31-a5db-b0819ff4e192: 'Topic Image' # Topic Image
     3f4f4974-59b8-47a6-be38-06b9d683090a: w300 # w300
@@ -56,13 +57,17 @@ meta:
     8f0fb84e-689d-4c12-94eb-bf03b425c3cb: Image # Image
     9bd77605-d325-4b4b-b70b-0b0711e6c213: Page # Page
     9ef5cace-b52c-491f-9f1e-8ffdb11a8764: Title # Title
+    9f23e412-f9f2-4d07-b1a3-2fd8de0354c2: Image # Image
     14a507e4-2e91-44cc-8b0a-326f6090a58d: 'Page Title' # Page Title
     21eb40aa-9362-4d89-a48f-ca390516d3e7: Topics # Topics
+    55ecb349-612d-4030-a761-62e22ed0e9d0: 'Topic Asset and Text' # Topic Asset and Text
     58c604cf-b782-40bb-9e15-1f0ae16622d1: Assets # Assets
+    73d95a70-94dd-4f88-af85-0144e8146b17: Video # Video
     86e77812-bb08-4036-a2b4-60ba8f9f4f08: Text # Text
     220b8ac9-c2e7-464f-b4b2-377ba53ca1d9: Text # Text
     593c0eef-2c24-4785-99b5-7df6e3851a3d: w800 # w800
     47297fb6-1156-442d-8877-203536aedcc7: Private # Private
+    88951ff3-ac46-4a7e-aa07-ad6fb7958153: 'Youtube or Vimeo URL' # Youtube or Vimeo URL
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
     a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
@@ -70,6 +75,7 @@ meta:
     c7319607-602e-471d-bb5e-5b147aeaa1fd: 'Topic Assets' # Topic Assets
     de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
+    e35dccd7-e571-4e8d-ac9f-6dd94b67d815: 'Asset and Text' # Asset and Text
 plugins:
   ckeditor:
     edition: standard

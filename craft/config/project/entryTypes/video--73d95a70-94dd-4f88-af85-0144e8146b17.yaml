@@ -1,0 +1,88 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  77d8d447-3afe-4596-ac79-f7e5fe26a196:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-10-02T14:32:06+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 60fe2946-b07d-405d-a061-d44fb8f88ca3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T14:34:15+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 220b8ac9-c2e7-464f-b4b2-377ba53ca1d9 # Text
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 65de64db-96f7-42cd-85bf-1532aee58df9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T14:34:15+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 88951ff3-ac46-4a7e-aa07-ad6fb7958153 # Youtube or Vimeo URL
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 697c398d-9b89-4626-8354-d1eec1f47cdf
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fa5d85cd-a719-4dcb-bb1e-5140f0726882
+        userCondition: null
+    thumbFieldKey: null
+handle: video
+hasTitleField: true
+icon: null
+name: Video
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

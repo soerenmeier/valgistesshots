@@ -3,6 +3,8 @@ enableVersioning: true
 entryTypes:
   -
     uid: 4a325d08-d837-48a6-bc6d-20e5e11e8d5c # Topic
+  -
+    uid: 55ecb349-612d-4030-a761-62e22ed0e9d0 # Topic Asset and Text
 handle: topics
 maxAuthors: 1
 minAuthors: 1

@@ -7,9 +7,9 @@
 	.bottom-corners {
 		position: fixed;
 		z-index: 9;
-		right: var(--frame-inset);
-		bottom: var(--frame-inset);
-		left: var(--frame-inset);
+		right: var(--corner-inset);
+		bottom: var(--corner-inset);
+		left: var(--corner-inset);
 		height: var(--corner-size);
 		color: #fff;
 		mix-blend-mode: difference;

@@ -12,7 +12,7 @@
 
 	<nav aria-label="Main navigation">
 		<a class="home" href={$site.url.href}>Home</a>
-		{#if entry?.typeHandle === 'topic'}
+		{#if entry?.typeHandle === 'topic' || entry?.typeHandle === 'topicWithText'}
 			<h1 class="topic-title">{entry.title}</h1>
 		{:else}
 			<a
@@ -64,7 +64,7 @@
 
 	.corner {
 		position: absolute;
-		top: var(--frame-inset);
+		top: var(--corner-inset);
 		width: var(--corner-size);
 		height: var(--corner-size);
 		border-top: 1px solid currentColor;
@@ -72,12 +72,12 @@
 	}
 
 	.left {
-		left: var(--frame-inset);
+		left: var(--corner-inset);
 		border-left: 1px solid currentColor;
 	}
 
 	.right {
-		right: var(--frame-inset);
+		right: var(--corner-inset);
 		border-right: 1px solid currentColor;
 	}
 

@@ -1,0 +1,122 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  46db72fb-d274-447a-b163-cbc84ea47635:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-10-02T14:30:01+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: c379fb86-fa7d-4a9f-969f-000653838ea0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T14:35:43+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 86e77812-bb08-4036-a2b4-60ba8f9f4f08 # Text
+            handle: firstWord
+            instructions: null
+            label: 'First word'
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f2c7403-d791-4c6b-9057-e4132657867c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T14:35:43+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 86e77812-bb08-4036-a2b4-60ba8f9f4f08 # Text
+            handle: lastWord
+            instructions: null
+            label: 'Last word'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 39039f4b-ad09-498f-b263-f47c650f29da
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T14:36:49+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3e495542-aca6-4e31-a5db-b0819ff4e192 # Topic Image
+            handle: previewImage
+            instructions: null
+            label: 'Preview Image'
+            oldFieldUid: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad06c7d6-ce28-4151-9a11-b7a373f1e492
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-02T14:35:43+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e35dccd7-e571-4e8d-ac9f-6dd94b67d815 # Asset and Text
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 52bbacae-cd93-4ef4-a0f2-829587dd83b5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c9e22b3d-5686-4355-b3ab-e8b334775800
+        userCondition: null
+    thumbFieldKey: null
+handle: topicWithText
+hasTitleField: true
+icon: null
+name: 'Topic Asset and Text'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
