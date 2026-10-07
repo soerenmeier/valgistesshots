@@ -1,4 +1,4 @@
-dateModified: 1790956314
+dateModified: 1791389319
 elementSources:
   craft\elements\Entry:
     -
@@ -68,9 +68,12 @@ meta:
     220b8ac9-c2e7-464f-b4b2-377ba53ca1d9: Text # Text
     575c3ff2-668b-49fb-bd4f-f186f7401571: '2 Grid' # 2 Grid
     593c0eef-2c24-4785-99b5-7df6e3851a3d: w800 # w800
+    880c5b08-2dd7-4eca-9934-d86c5a920591: 'Text align' # Text align
+    3120cae9-85b6-4a52-b64d-1285223f18d7: 'No Parallax' # No Parallax
     07388cad-b2a4-43b5-a445-69d54e50220e: 'Topic 3 images' # Topic 3 images
     47297fb6-1156-442d-8877-203536aedcc7: Private # Private
     88951ff3-ac46-4a7e-aa07-ad6fb7958153: 'Youtube or Vimeo URL' # Youtube or Vimeo URL
+    10639030-828c-4846-8533-d33f89df9f94: 'Switch side' # Switch side
     a3263fcf-372a-470f-9469-cd9e022fb351: Endpoint # Endpoint
     a5016d49-7f9c-4d09-a668-aace6e62806c: Intro # Intro
     af3c45b7-8c3a-4f8d-8812-6d40269f5202: "Valgiste's Shots" # Valgiste's Shots
@@ -80,6 +83,7 @@ meta:
     de466536-b420-449b-be6d-ceb92c8d7e2d: 'Public Schema' # Public Schema
     e5d61383-819f-4e37-a11b-7cfe3793ed83: About # About
     e35dccd7-e571-4e8d-ac9f-6dd94b67d815: 'Topic Content' # Topic Content
+    eb1dd24e-f7e7-4a03-84a3-fa68789195da: Autoplay # Autoplay
     f6312cd6-98bd-4b2b-88d9-7be605c5545c: 'Topic 2 Images' # Topic 2 Images
     fc271180-ae2e-47a7-a870-a80705c618e1: Displace # Displace
 plugins:
@@ -96,7 +100,7 @@ plugins:
       prependSender: 'On behalf of'
       prependSubject: "New message from Valgiste's Shots"
       successFlashMessage: 'Your message has been sent.'
-      toEmail: support@meierlabs.ch
+      toEmail: luisa@valgistesshots.com
   craft-crelte:
     edition: solo
     enabled: true

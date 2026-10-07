@@ -26,7 +26,7 @@ fieldLayouts:
             orientation: null
             placeholder: null
             readonly: false
-            required: true
+            required: false
             size: null
             step: null
             tip: null
@@ -54,6 +54,23 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-10-07T16:04:10+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 880c5b08-2dd7-4eca-9934-d86c5a920591 # Text align
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fa75acf3-a63d-4df3-a57e-4f59488076d0
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2026-10-02T14:34:15+00:00'
             editCondition: null
             elementCondition: null
@@ -63,13 +80,64 @@ fieldLayouts:
             instructions: null
             label: null
             oldFieldUid: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 697c398d-9b89-4626-8354-d1eec1f47cdf
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-10-07T16:06:03+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 1fd80e84-0ac5-43b7-a0ee-6013a7cf44e6 # Video
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1f914c68-699e-4a0e-92d1-70923391d54a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-10-07T15:53:09+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 10639030-828c-4846-8533-d33f89df9f94 # Switch side
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 04e03ada-7749-4d02-b7bd-59de2400a5bd
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-10-07T16:08:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: eb1dd24e-f7e7-4a03-84a3-fa68789195da # Autoplay
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8791e88b-001b-4292-b086-17f0521ce97c
+            userCondition: null
+            warning: null
+            width: 50
         name: Content
         uid: fa5d85cd-a719-4dcb-bb1e-5140f0726882
         userCondition: null

@@ -1,4 +1,7 @@
-export function videoEmbedUrl(value: string | null | undefined): string | null {
+export function videoEmbedUrl(
+	value: string | null | undefined,
+	autoplay = false,
+): string | null {
 	if (!value) return null;
 
 	let url: URL;
@@ -26,9 +29,17 @@ export function videoEmbedUrl(value: string | null | undefined): string | null {
 					? path[1]
 					: url.searchParams.get('v');
 
-		return id && /^[\w-]{11}$/.test(id)
-			? `https://www.youtube-nocookie.com/embed/${id}`
-			: null;
+		if (!id || !/^[\w-]{11}$/.test(id)) return null;
+
+		const embed = new URL(`https://www.youtube-nocookie.com/embed/${id}`);
+		if (autoplay) {
+			embed.searchParams.set('autoplay', '1');
+			embed.searchParams.set('mute', '1');
+			embed.searchParams.set('loop', '1');
+			embed.searchParams.set('playlist', id);
+			embed.searchParams.set('playsinline', '1');
+		}
+		return embed.href;
 	}
 
 	if (host === 'vimeo.com' || host === 'player.vimeo.com') {
@@ -41,6 +52,12 @@ export function videoEmbedUrl(value: string | null | undefined): string | null {
 		const hash = url.searchParams.get('h') || path[idIndex + 1];
 		if (hash && /^[a-zA-Z0-9]+$/.test(hash))
 			embed.searchParams.set('h', hash);
+		if (autoplay) {
+			embed.searchParams.set('autoplay', '1');
+			embed.searchParams.set('muted', '1');
+			embed.searchParams.set('loop', '1');
+			embed.searchParams.set('playsinline', '1');
+		}
 		return embed.href;
 	}
 

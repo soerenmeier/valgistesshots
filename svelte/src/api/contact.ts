@@ -2,8 +2,7 @@ export type ContactDetails = {
 	name: string;
 	email: string;
 	phone: string;
-	date: string;
-	budget: string;
+
 	vision: string;
 	company: string;
 };

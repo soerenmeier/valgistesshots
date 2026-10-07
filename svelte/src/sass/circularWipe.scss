@@ -1,0 +1,35 @@
+@mixin circular-wipe {
+	--wipe-x: 50%;
+	--wipe-y: 50%;
+	--wipe-size: 250%;
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: var(--wipe-x);
+		top: var(--wipe-y);
+		width: var(--wipe-size);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: var(--wipe-fill);
+		transform: translate(-50%, -50%) scale(0);
+		transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+		pointer-events: none;
+	}
+
+	.wipe-content {
+		position: relative;
+		color: #fff;
+		mix-blend-mode: difference;
+		pointer-events: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&::before {
+			transition: none;
+		}
+	}
+}

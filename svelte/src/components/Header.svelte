@@ -35,9 +35,11 @@
 					? 'noopener noreferrer'
 					: undefined}
 			>
-				{$header.contactLink.label ||
-					$header.contactLink.defaultLabel ||
-					$header.contactLink.url}
+				<span class="email-label">
+					{$header.contactLink.label ||
+						$header.contactLink.defaultLabel ||
+						$header.contactLink.url}
+				</span>
 			</a>
 		{/if}
 	</nav>
@@ -58,7 +60,7 @@
 	.topic-title {
 		justify-self: center;
 		margin-top: -0.4rem;
-		font-family: var(--font-serif);
+		font-family: var(--font-sans);
 		font-size: clamp(1.75rem, 3vw, 3rem);
 		font-weight: 400;
 		line-height: 1;
@@ -130,14 +132,64 @@
 
 	.email::before {
 		content: '';
+		flex-shrink: 0;
 		width: 0.65rem;
 		height: 0.65rem;
 		border-radius: 50%;
 		background: #32bab6;
+		transition:
+			transform 0.35s,
+			box-shadow 0.35s;
 	}
 
-	nav a:hover,
-	nav a:focus-visible {
+	.email-label {
+		position: relative;
+	}
+
+	.email-label::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -0.3em;
+		width: 100%;
+		height: 1px;
+		background: currentColor;
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.email:focus-visible::before {
+		transform: scale(1.2);
+		box-shadow: 0 0 0 0.25rem rgb(50 186 182 / 20%);
+	}
+
+	.email:focus-visible .email-label::after {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+
+	@media (hover: hover) {
+		.email:hover::before {
+			transform: scale(1.2);
+			box-shadow: 0 0 0 0.25rem rgb(50 186 182 / 20%);
+		}
+
+		.email:hover .email-label::after {
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.email::before,
+		.email-label::after {
+			transition: none;
+		}
+	}
+
+	nav a:not(.email):hover,
+	nav a:not(.email):focus-visible {
 		text-decoration: underline;
 		text-underline-offset: 0.3em;
 	}

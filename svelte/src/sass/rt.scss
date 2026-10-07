@@ -28,8 +28,31 @@
 	}
 
 	a {
-		text-decoration: underline;
-		text-underline-offset: 0.15em;
+		padding-bottom: 0.15em;
+		text-decoration: none;
+		background-image: linear-gradient(currentColor, currentColor);
+		background-repeat: no-repeat;
+		background-position: right bottom;
+		background-size: 0% 1px;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+		transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+		&:focus-visible {
+			background-position: left bottom;
+			background-size: 100% 1px;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background-position: left bottom;
+				background-size: 100% 1px;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
 	}
 
 	ol {

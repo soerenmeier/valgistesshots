@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: switchSide
+instructions: null
+name: 'Switch side'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+  showLabelsInCards: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

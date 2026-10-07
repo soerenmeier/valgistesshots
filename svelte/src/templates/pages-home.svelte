@@ -2,23 +2,42 @@
 	import topicsQuery from '@/queries/topics.graphql';
 
 	export const loadData = topicsQuery;
+
+	const scrollPositions = new Map();
 </script>
 
 <script>
 	import { onMount } from 'svelte';
+	import { getRoute } from 'crelte';
 	import Lenis from 'lenis';
 	import HomeIntro from '@/components/home/HomeIntro.svelte';
 	import About from '@/components/home/About.svelte';
 	import TopicShowcase from '@/components/home/TopicShowcase.svelte';
 	import Contact from '@/components/home/Contact.svelte';
 
+	const route = getRoute();
 	let { entry, topics = [] } = $props();
 	let scroller;
 	let track;
 
 	onMount(() => {
 		const media = window.matchMedia('(min-width: 1111px)');
+		const homeRoute = $route;
+		const savedPosition =
+			homeRoute.getState('homeScroll') ?? scrollPositions.get(entry.url);
 		let lenis;
+
+		function rememberPosition() {
+			// Navigation updates the route before resetting the document scroll.
+			if ($route.entry?.url !== entry.url) return;
+
+			const position = {
+				left: scroller.scrollLeft,
+				top: window.scrollY,
+			};
+			scrollPositions.set(entry.url, position);
+			$route.setState('homeScroll', position);
+		}
 
 		function setup() {
 			lenis?.destroy();
@@ -38,7 +57,36 @@
 		setup();
 		media.addEventListener('change', setup);
 
+		// Wait until the router has applied its default scroll reset.
+		const restoreFrame = requestAnimationFrame(() => {
+			if (savedPosition && !homeRoute.hash) {
+				lenis?.resize();
+				if (lenis) {
+					lenis.scrollTo(savedPosition.left, { immediate: true });
+				} else {
+					scroller.scrollLeft = savedPosition.left;
+				}
+				window.scrollTo({
+					top: savedPosition.top,
+					behavior: 'instant',
+				});
+			}
+
+			rememberPosition();
+			window.addEventListener('scroll', rememberPosition, {
+				passive: true,
+			});
+			scroller.addEventListener('scroll', rememberPosition, {
+				passive: true,
+			});
+			scroller.addEventListener('click', rememberPosition, true);
+		});
+
 		return () => {
+			cancelAnimationFrame(restoreFrame);
+			window.removeEventListener('scroll', rememberPosition);
+			scroller.removeEventListener('scroll', rememberPosition);
+			scroller.removeEventListener('click', rememberPosition, true);
 			media.removeEventListener('change', setup);
 			lenis?.destroy();
 		};

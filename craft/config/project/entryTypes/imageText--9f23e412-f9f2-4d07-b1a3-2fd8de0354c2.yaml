@@ -26,7 +26,7 @@ fieldLayouts:
             orientation: null
             placeholder: null
             readonly: false
-            required: true
+            required: false
             size: null
             step: null
             tip: null
@@ -54,6 +54,23 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-10-07T16:04:21+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 880c5b08-2dd7-4eca-9934-d86c5a920591 # Text align
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8750891f-fe08-41d1-900e-2da77616cd5d
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2026-10-02T14:36:27+00:00'
             editCondition: null
             elementCondition: null
@@ -70,6 +87,40 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-10-07T15:57:38+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 10639030-828c-4846-8533-d33f89df9f94 # Switch side
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4ff85675-28cc-4b80-98bc-7bb9d730f315
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-10-07T16:00:27+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3120cae9-85b6-4a52-b64d-1285223f18d7 # No Parallax
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1483c2a2-2ba0-47f4-8dbb-66d08e7100bd
+            userCondition: null
+            warning: null
+            width: 50
         name: Content
         uid: 286758dc-82f3-4ea6-8c31-4031e7f6bdc6
         userCondition: null

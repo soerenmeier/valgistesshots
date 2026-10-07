@@ -1,11 +1,32 @@
 <script lang="ts">
+	import { circularWipe } from '@/lib/circularWipe';
+
 	type Topic = { url: string; title: string };
-	let { previous, next }: { previous?: Topic | null; next?: Topic | null } = $props();
+	let { previous, next }: { previous?: Topic | null; next?: Topic | null } =
+		$props();
 
 	function handleKeydown(event: KeyboardEvent) {
-		if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
-		if (event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable], [role="slider"]')) return;
-		const topic = event.key === 'ArrowLeft' ? previous : event.key === 'ArrowRight' ? next : null;
+		if (
+			event.defaultPrevented ||
+			event.metaKey ||
+			event.ctrlKey ||
+			event.altKey ||
+			event.shiftKey
+		)
+			return;
+		if (
+			event.target instanceof Element &&
+			event.target.closest(
+				'input, textarea, select, [contenteditable], [role="slider"]',
+			)
+		)
+			return;
+		const topic =
+			event.key === 'ArrowLeft'
+				? previous
+				: event.key === 'ArrowRight'
+					? next
+					: null;
 		if (!topic) return;
 		event.preventDefault();
 		window.location.assign(topic.url);
@@ -18,13 +39,24 @@
 	{#if item.topic}
 		<a
 			class="topic-nav {item.direction}"
+			use:circularWipe={'.circle'}
 			href={item.topic.url}
 			aria-label="{item.label} topic: {item.topic.title}"
 			rel={item.direction}
 		>
 			<span class="circle" aria-hidden="true">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-					<path d={item.direction === 'prev' ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />
+				<svg
+					class="wipe-content"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.5"
+				>
+					<path
+						d={item.direction === 'prev'
+							? 'M15 5l-7 7 7 7'
+							: 'M9 5l7 7-7 7'}
+					/>
 				</svg>
 			</span>
 			<span class="label">{item.topic.title}</span>
@@ -32,7 +64,9 @@
 	{/if}
 {/each}
 
-<style>
+<style lang="scss">
+	@use '../../sass/circularWipe' as *;
+
 	.topic-nav {
 		position: fixed;
 		top: 50%;
@@ -49,10 +83,17 @@
 		text-transform: uppercase;
 	}
 
-	.prev { left: calc(var(--corner-inset) + 1rem); }
-	.next { right: calc(var(--corner-inset) + 1rem); flex-direction: row-reverse; }
+	.prev {
+		left: calc(var(--corner-inset) + 1rem);
+	}
+	.next {
+		right: calc(var(--corner-inset) + 1rem);
+		flex-direction: row-reverse;
+	}
 
 	.circle {
+		@include circular-wipe;
+		--wipe-fill: #fff;
 		display: grid;
 		width: clamp(2.75rem, 3.5vw, 3.5rem);
 		aspect-ratio: 1;
@@ -60,35 +101,75 @@
 		place-items: center;
 		border: 1px solid currentColor;
 		border-radius: 50%;
-		transition: background-color 0.3s, color 0.3s, transform 0.3s;
+		transition: transform 0.3s;
 	}
 
-	svg { width: 38%; height: 38%; }
+	svg {
+		width: 38%;
+		height: 38%;
+	}
 
 	.label {
 		white-space: nowrap;
 		opacity: 0;
 		transform: translateX(-0.5rem);
-		transition: opacity 0.3s, transform 0.3s;
+		transition:
+			opacity 0.3s,
+			transform 0.3s;
 	}
 
-	.next .label { transform: translateX(0.5rem); }
-	.topic-nav:hover .circle, .topic-nav:focus-visible .circle {
-		background: #fff;
-		color: #000;
+	.next .label {
+		transform: translateX(0.5rem);
+	}
+	@media (hover: hover) {
+		.topic-nav:hover .circle::before {
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		.topic-nav:hover .circle {
+			transform: scale(1.08);
+		}
+	}
+
+	.topic-nav:focus-visible .circle::before {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	.topic-nav:focus-visible .circle {
 		transform: scale(1.08);
 	}
-	.topic-nav:hover .label, .topic-nav:focus-visible .label { opacity: 1; transform: none; }
-	.topic-nav:focus-visible { outline: 2px solid currentColor; outline-offset: 0.4rem; border-radius: 2rem; }
+	.topic-nav:hover .label,
+	.topic-nav:focus-visible .label {
+		opacity: 1;
+		transform: none;
+	}
+	.topic-nav:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 0.4rem;
+		border-radius: 2rem;
+	}
 
 	@media (max-width: 767px) {
-		.topic-nav { top: auto; bottom: calc(var(--corner-inset) + 2.75rem); transform: none; }
-		.label { display: none; }
-		.prev { left: calc(var(--corner-inset) + 0.75rem); }
-		.next { right: calc(var(--corner-inset) + 0.75rem); }
+		.topic-nav {
+			top: auto;
+			bottom: calc(var(--corner-inset) + 2.75rem);
+			transform: none;
+		}
+		.label {
+			display: none;
+		}
+		.prev {
+			left: calc(var(--corner-inset) + 0.75rem);
+		}
+		.next {
+			right: calc(var(--corner-inset) + 0.75rem);
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.circle, .label { transition: none; }
+		.circle,
+		.label {
+			transition: none;
+		}
 	}
 </style>

@@ -125,7 +125,7 @@
 		z-index: 1;
 		white-space: nowrap;
 		color: #aaa;
-		font-family: var(--font-serif);
+		font-family: var(--font-sans);
 		font-size: clamp(4rem, 7vw, 7rem);
 		line-height: 1;
 		pointer-events: none;

@@ -4,8 +4,7 @@ type ContactRequest = {
 	name: string;
 	email: string;
 	phone: string;
-	date: string;
-	budget: string;
+
 	vision: string;
 	company?: string;
 };
@@ -20,7 +19,7 @@ export async function sendContact(csr: CrelteServerRequest): Promise<Response> {
 
 	if (
 		!data ||
-		!['name', 'email', 'phone', 'date', 'budget'].every(
+		!['name', 'email', 'phone'].every(
 			key =>
 				typeof data[key as keyof ContactRequest] === 'string' &&
 				!!data[key as keyof ContactRequest]?.trim(),
@@ -66,8 +65,7 @@ export async function sendContact(csr: CrelteServerRequest): Promise<Response> {
 					[csrfTokenName]: csrfTokenValue,
 					message: {
 						'Contact Number': data.phone.trim(),
-						Date: data.date.trim(),
-						Budget: data.budget.trim(),
+
 						body: data.vision.trim(),
 					},
 				}),

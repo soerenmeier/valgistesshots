@@ -61,7 +61,7 @@
 
 	h2,
 	.content :global(.rt .html h2) {
-		font-family: var(--font-serif);
+		font-family: var(--font-sans);
 		font-size: clamp(3rem, 6vw, 5rem);
 		font-weight: 400;
 		line-height: 1.1;

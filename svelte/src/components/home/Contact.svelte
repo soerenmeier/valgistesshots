@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { contact } from '@/api/contact';
+	import { circularWipe } from '@/lib/circularWipe';
+	import { textareaSparkles } from '@/lib/textareaSparkles';
+	import { submitSparkles } from '@/lib/emojiParticles';
 	import Richtext, { hasChunks } from '../cke/Richtext.svelte';
 
 	let {
@@ -13,8 +16,7 @@
 	let name = $state('');
 	let email = $state('');
 	let phone = $state('');
-	let date = $state('');
-	let budget = $state('');
+
 	let vision = $state('');
 	let company = $state('');
 	let sending = $state(false);
@@ -33,8 +35,7 @@
 				name,
 				email,
 				phone,
-				date,
-				budget,
+
 				vision,
 				company,
 			});
@@ -50,6 +51,7 @@
 <section
 	class="contact"
 	id="contact"
+	use:submitSparkles
 	aria-labelledby={title ? 'contact-title' : undefined}
 	aria-label={title ? undefined : 'Contact form'}
 >
@@ -105,28 +107,6 @@
 					/>
 				</div>
 
-				<div class="field">
-					<label for="contact-date">Date*</label>
-					<input
-						id="contact-date"
-						type="date"
-						name="date"
-						required
-						bind:value={date}
-					/>
-				</div>
-
-				<div class="field">
-					<label for="contact-budget">Your Budget*</label>
-					<input
-						id="contact-budget"
-						type="text"
-						name="budget"
-						required
-						bind:value={budget}
-					/>
-				</div>
-
 				<div class="field full">
 					<label for="contact-vision">
 						Tell me about your vision
@@ -134,8 +114,9 @@
 					<textarea
 						id="contact-vision"
 						name="vision"
-						rows="2"
+						rows="4"
 						bind:value={vision}
+						use:textareaSparkles
 					></textarea>
 				</div>
 
@@ -157,8 +138,15 @@
 					</p>
 				{/if}
 
-				<button class="submit full" type="submit" disabled={sending}>
-					{sending ? 'Sending…' : 'Submit'}
+				<button
+					class="submit full"
+					type="submit"
+					disabled={sending}
+					use:circularWipe
+				>
+					<span class="wipe-content">
+						{sending ? 'Sending…' : 'Submit'}
+					</span>
 				</button>
 			</form>
 		{/if}
@@ -166,6 +154,8 @@
 </section>
 
 <style lang="scss">
+	@use '../../sass/circularWipe' as *;
+
 	.contact {
 		min-height: 100svh;
 		padding: clamp(9rem, 16vh, 12rem) var(--frame-inset)
@@ -175,7 +165,7 @@
 	}
 
 	.inner {
-		max-width: 76rem;
+		max-width: 80rem;
 		margin-inline: auto;
 	}
 
@@ -190,7 +180,6 @@
 	}
 
 	.intro {
-		max-width: 30rem;
 		font-size: clamp(1rem, 1.4vw, 1.125rem);
 		line-height: 1.5;
 		overflow-wrap: anywhere;
@@ -198,11 +187,6 @@
 
 	h2 + .intro {
 		margin-top: 1.5rem;
-	}
-
-	.intro :global(.rt a) {
-		text-decoration: underline;
-		text-underline-offset: 0.15em;
 	}
 
 	form {
@@ -245,19 +229,30 @@
 	}
 
 	.submit {
+		@include circular-wipe;
+		--wipe-fill: #000;
 		min-height: 3.75rem;
 		border: 2px solid currentColor;
-		background: transparent;
+		background: #f7f6f2;
 		color: inherit;
 		font: inherit;
 		font-weight: 700;
 		cursor: pointer;
 	}
 
-	.submit:hover,
+	@media (hover: hover) {
+		.submit:not(:disabled):hover::before {
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+
 	.submit:focus-visible {
-		background: #171717;
-		color: #f7f6f2;
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
+	}
+
+	.submit:focus-visible::before {
+		transform: translate(-50%, -50%) scale(1);
 	}
 
 	.submit:disabled {
@@ -297,7 +292,7 @@
 			width: 100vw;
 			height: 100svh;
 			min-height: 0;
-			padding-block: clamp(7rem, 12vh, 9rem) clamp(4rem, 8vh, 6rem);
+			padding-block: clamp(6rem, 10vh, 8rem);
 			align-items: center;
 			flex: 0 0 100vw;
 		}
@@ -305,7 +300,7 @@
 		.inner {
 			display: grid;
 			width: 100%;
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+			grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
 			align-items: center;
 			gap: clamp(2rem, 5vw, 5rem);
 		}

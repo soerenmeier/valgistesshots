@@ -66,6 +66,9 @@ query ($uri: [String], $siteId: [QueryArgument]) {
           }
         }
         ... on imageText_Entry {
+          textAlign
+          switchSide
+          noParallax
           topicImage {
             ...TopicImage
           }
@@ -76,6 +79,13 @@ query ($uri: [String], $siteId: [QueryArgument]) {
           }
         }
         ... on videoText_Entry {
+          autoplay
+          textAlign
+          switchSide
+          video {
+            url
+            title
+          }
           youtubeOrVimeoUrl {
             url
           }
