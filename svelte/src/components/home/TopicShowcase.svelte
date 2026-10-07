@@ -126,7 +126,7 @@
 		white-space: nowrap;
 		color: #aaa;
 		font-family: var(--font-sans);
-		font-size: clamp(4rem, 7vw, 7rem);
+		font-size: clamp(3rem, 5.25vw, 5.25rem);
 		line-height: 1;
 		pointer-events: none;
 	}
@@ -199,7 +199,7 @@
 		}
 
 		.name {
-			font-size: clamp(3.5rem, 13vw, 6rem);
+			font-size: clamp(2.625rem, 9.75vw, 4.5rem);
 		}
 	}
 </style>

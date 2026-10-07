@@ -14,6 +14,7 @@
 <script>
 	import AssetAndText from '@/components/topic/AssetAndText.svelte';
 	import TopicNavigation from '@/components/topic/TopicNavigation.svelte';
+	import TopicLightbox from '@/components/topic/TopicLightbox.svelte';
 
 	let { entry, blocks, topics = [] } = $props();
 
@@ -66,7 +67,9 @@
 	</header>
 
 	<section class="gallery" aria-label="Topic gallery">
-		<AssetAndText {blocks} />
+		<TopicLightbox>
+			<AssetAndText {blocks} />
+		</TopicLightbox>
 	</section>
 </main>
 
@@ -105,12 +108,12 @@
 	}
 
 	.gallery {
-		padding-top: clamp(2.5rem, 6vh, 4rem);
+		padding: clamp(2.5rem, 6vh, 4rem) 0.75rem 0.75rem;
 	}
 
 	@media (min-width: 768px) {
 		.gallery {
-			padding-inline: var(--frame-inset);
+			padding-inline: calc(var(--frame-inset) + 0.75rem);
 		}
 	}
 

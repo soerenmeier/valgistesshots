@@ -1,5 +1,14 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	import { topicPhotoMotion } from '@/lib/topicPhotoMotion';
+	import {
+		topicLightboxContext,
+		type TopicLightboxContext,
+	} from './lightboxContext';
+
+	const lightbox = getContext<TopicLightboxContext | undefined>(
+		topicLightboxContext,
+	);
 
 	type Image = {
 		w800?: string | null;
@@ -21,26 +30,58 @@
 	class:no-parallax={noParallax}
 	use:topicPhotoMotion={noParallax}
 >
-	<div class="frame">
-		<img
-			src={image.w1920 || image.w800 || undefined}
-			srcset={image.w800 && image.w1920
-				? `${image.w800} 800w, ${image.w1920} 1920w`
-				: undefined}
-			{sizes}
-			width={image.width ?? undefined}
-			height={image.height ?? undefined}
-			alt={image.alt ?? image.title ?? ''}
-			loading="lazy"
-			decoding="async"
-		/>
-	</div>
+	{#snippet frame()}
+		<div class="frame">
+			<img
+				src={image.w1920 || image.w800 || undefined}
+				srcset={image.w800 && image.w1920
+					? `${image.w800} 800w, ${image.w1920} 1920w`
+					: undefined}
+				{sizes}
+				width={image.width ?? undefined}
+				height={image.height ?? undefined}
+				alt={image.alt ?? image.title ?? ''}
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	{/snippet}
+	{#if lightbox && (image.w1920 || image.w800)}
+		<button
+			class="open-lightbox"
+			use:lightbox.register={image}
+			aria-label="Enlarge image{image.alt || image.title
+				? `: ${image.alt || image.title}`
+				: ''}"
+			aria-haspopup="dialog"
+			onclick={event => lightbox.open(event.currentTarget)}
+		>
+			{@render frame()}
+		</button>
+	{:else}
+		{@render frame()}
+	{/if}
 </figure>
 
 <style>
 	.photo {
 		width: 100%;
 	}
+	.open-lightbox {
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		text-align: inherit;
+		cursor: zoom-in;
+	}
+
+	.open-lightbox:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
+	}
+
 	.frame {
 		overflow: hidden;
 		background: #d6d5d0;

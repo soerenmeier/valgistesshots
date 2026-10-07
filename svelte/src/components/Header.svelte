@@ -4,6 +4,27 @@
 	const site = getSite();
 	const header = getGlobal('header');
 	let { entry } = $props();
+
+	function handleHomeClick(event) {
+		if (
+			event.button !== 0 ||
+			event.metaKey ||
+			event.ctrlKey ||
+			event.shiftKey ||
+			event.altKey
+		)
+			return;
+
+		const homeUrl = new URL($site.url.href, window.location.href);
+		if (
+			window.location.origin !== homeUrl.origin ||
+			window.location.pathname !== homeUrl.pathname
+		)
+			return;
+
+		event.preventDefault();
+		window.dispatchEvent(new Event('home-scroll-start'));
+	}
 </script>
 
 <header
@@ -14,7 +35,7 @@
 	<span class="corner right" aria-hidden="true"></span>
 
 	<nav aria-label="Main navigation">
-		<a class="home" href={$site.url.href}>Home</a>
+		<a class="home" href={$site.url.href} onclick={handleHomeClick}>Home</a>
 		{#if entry?.typeHandle === 'topic'}
 			<h1 class="topic-title">{entry.title}</h1>
 		{:else}

@@ -55,8 +55,27 @@
 				: undefined;
 		}
 
+		function scrollToStart() {
+			const reducedMotion = window.matchMedia(
+				'(prefers-reduced-motion: reduce)',
+			).matches;
+			if (lenis) {
+				lenis.scrollTo(0, { immediate: reducedMotion });
+			} else {
+				scroller.scrollTo({
+					left: 0,
+					behavior: reducedMotion ? 'instant' : 'smooth',
+				});
+			}
+			window.scrollTo({
+				top: 0,
+				behavior: reducedMotion ? 'instant' : 'smooth',
+			});
+		}
+
 		setup();
 		media.addEventListener('change', setup);
+		window.addEventListener('home-scroll-start', scrollToStart);
 
 		// Wait until the router has applied its default scroll reset.
 		const restoreFrame = requestAnimationFrame(() => {
@@ -85,6 +104,7 @@
 
 		return () => {
 			cancelAnimationFrame(restoreFrame);
+			window.removeEventListener('home-scroll-start', scrollToStart);
 			window.removeEventListener('scroll', rememberPosition);
 			scroller.removeEventListener('scroll', rememberPosition);
 			scroller.removeEventListener('click', rememberPosition, true);
