@@ -53,7 +53,7 @@
 									aria-hidden="true"
 								></div>
 							{/if}
-							<span class="plus" aria-hidden="true">+</span>
+
 							{#if second}
 								<span class="name last" aria-hidden="true">
 									{second}
@@ -123,7 +123,7 @@
 	.name {
 		position: absolute;
 		z-index: 1;
-		max-width: 110%;
+		white-space: nowrap;
 		color: #aaa;
 		font-family: var(--font-serif);
 		font-size: clamp(4rem, 7vw, 7rem);
@@ -141,26 +141,9 @@
 		bottom: -0.38em;
 	}
 
-	.plus {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		color: white;
-		font-size: 2rem;
-		font-weight: 300;
-		transform: translate(-50%, -50%);
-	}
-
 	.card a:hover .name,
-	.card a:hover .plus,
-	.card a:focus-visible .name,
-	.card a:focus-visible .plus {
+	.card a:focus-visible .name {
 		color: #000;
-	}
-
-	.card a:hover .plus,
-	.card a:focus-visible .plus {
-		transform: translate(-50%, -50%) scale(1.35);
 	}
 
 	.card a:focus-visible {

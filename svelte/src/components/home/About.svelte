@@ -25,14 +25,20 @@
 {#if aboutTitle?.trim() || image?.url || hasChunks(aboutCke)}
 	<section class="about" id="about" aria-label="About">
 		<div class="content">
-			{#if aboutTitle?.trim()}
-				<h2>{aboutTitle}</h2>
-			{/if}
-			{#if image?.url}
-				<Image {image} />
+			{#if aboutTitle?.trim() || image?.url}
+				<div class="intro">
+					{#if aboutTitle?.trim()}
+						<h2>{aboutTitle}</h2>
+					{/if}
+					{#if image?.url}
+						<Image {image} />
+					{/if}
+				</div>
 			{/if}
 			{#if hasChunks(aboutCke)}
-				<Richtext chunks={aboutCke?.chunks ?? []} />
+				<div class="text">
+					<Richtext chunks={aboutCke?.chunks ?? []} />
+				</div>
 			{/if}
 		</div>
 	</section>
@@ -74,6 +80,34 @@
 
 	.content :global(.rt .html p) {
 		line-height: 1.55;
+	}
+
+	@include tablet {
+		.about {
+			display: flex;
+			flex-direction: column;
+			padding-block: clamp(6rem, 12vh, 9rem);
+		}
+
+		.content {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: clamp(2rem, 6vw, 6rem);
+			width: 100%;
+			max-width: 80rem;
+			margin-block: auto;
+			flex-shrink: 0;
+			align-items: start;
+		}
+
+		.intro :global(.image img) {
+			aspect-ratio: 5 / 3;
+		}
+
+		.text {
+			grid-column: 2;
+			padding-top: clamp(4rem, 6.5vw, 6.5rem);
+		}
 	}
 
 	@include desktop {
