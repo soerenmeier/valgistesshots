@@ -14,6 +14,7 @@
 	import About from '@/components/home/About.svelte';
 	import TopicShowcase from '@/components/home/TopicShowcase.svelte';
 	import Contact from '@/components/home/Contact.svelte';
+	import TrustedPartners from '@/components/home/TrustedPartners.svelte';
 
 	const route = getRoute();
 	let { entry, topics = [] } = $props();
@@ -111,6 +112,7 @@
 			aboutCke={entry.aboutCke}
 		/>
 		<TopicShowcase {topics} />
+		<TrustedPartners logos={entry.trustedPartnersLogo} />
 		<Contact title={entry.contactTitle} intro={entry.sectIntroCke} />
 	</div>
 </div>

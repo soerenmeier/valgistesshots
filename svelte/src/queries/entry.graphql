@@ -114,6 +114,14 @@ query ($uri: [String], $siteId: [QueryArgument]) {
           ...AboutImage
         }
       }
+      trustedPartnersLogo(kind: "image") {
+        id
+        url
+        width
+        height
+        alt
+        title
+      }
       contactTitle
       sectIntroCke {
         chunks {
